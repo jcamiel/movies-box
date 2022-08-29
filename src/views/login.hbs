@@ -1,0 +1,19 @@
+<div class="login">
+    <form class="login-form" method="post" action="/login">
+        {{#each errors}}
+            <div class="flash text-error background-error">{{this.msg}}</div>
+        {{/each}}
+        <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+        <p>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" />
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password" />
+        </p>
+        <p>
+            <input type="submit" value="Login" />
+        </p>
+    </form>
+</div>

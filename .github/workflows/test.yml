@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -18,7 +18,10 @@ jobs:
       - name: Build
         run: |
           bin/build.sh
-      - name: Integration test
+      - name: Unit tests
+        run: |
+          bin/test-unit.sh
+      - name: Integration tests
         run: |
           curl -LO https://github.com/Orange-OpenSource/hurl/releases/download/1.6.1/hurl_1.6.1_amd64.deb
           sudo dpkg -i hurl_1.6.1_amd64.deb

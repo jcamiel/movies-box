@@ -1,0 +1,54 @@
+<div class="flex align-items-center">
+    <h2><a href="{{movie.url}}">{{movie.name}}</a>
+        <span class="movie-year">({{movie.year}})</span></h2>
+</div>
+
+<div class="row">
+    <div class="col">
+        <img
+            class="movie-artwork"
+            width="400px"
+            height="600px"
+            src="/img/{{movie.artwork}}"
+        />
+    </div>
+
+    <div class="col">
+        <div>
+            <ul class="movie-crew">
+                <li><b>Director:</b> {{movie.director}}</li>
+                <li><b>Writers:</b> {{movie.writers}}</li>
+                <li><b>Actors:</b> {{movie.actors}}</li>
+                <li><b>Release date:</b> {{movie.releaseDate}}</li>
+            </ul>
+        </div>
+        <div class="movie-links">
+            {{#if movie.wikipediaUrl}}
+                <div class="movie-link">
+                    <a href="{{movie.wikipediaUrl}}">
+                        <img
+                            src="/img/wikipedia-icon.svg"
+                            width="32px"
+                            height="32px"
+                            alt="Wikipedia"
+                        />
+                    </a>
+                </div>
+            {{/if}}
+            {{#if movie.imdbUrl}}
+                <div class="movie-link">
+                    <a href="{{movie.imdbUrl}}">
+                        <img
+                            src="/img/imdb-icon.svg"
+                            width="32px"
+                            height="32px"
+                            alt="IMDb"
+                        />
+                    </a>
+                </div>
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>

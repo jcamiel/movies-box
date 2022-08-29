@@ -1,8 +1,233 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* Set the global `box-sizing` state to `border-box` so that `width` is not affected by `padding` or `border`.*/
+html {
+    box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Utilities */
+.flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-baseline {
+    align-items: baseline;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+main {
+    margin: 20px;
+}
+
+/* Nav bar */
+
+header {
+    background: linear-gradient(#0f172a, #6a22a6);
+    display: flex;
+    padding: 0 20px 0 20px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+header a {
+    color: #dba7ff;
+    text-shadow: 1px 1px 2px black, 0 0 25px #ff00fb, 0 0 5px darkblue;
+}
+
+h2 a {
+    color: #0f172a;
+}
+
+header a:link,
+h2 a:link {
+    text-decoration: none;
+}
+
+header a:visited,
+h2 a:visited {
+    text-decoration: none;
+}
+
+header a:hover,
+h2 a:hover {
+    text-decoration: none;
+}
+
+header a:active,
+h2 a:active {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2.7rem;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 5px solid #6a22a6;
+    display: inline;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6a22a6;
+    margin: 20px 0 20px 0;
+}
+
+/* Home */
+.home-welcome-text {
+    font-weight: 250;
+    font-size: 1.6rem;
+    margin-left: 20px;
+}
+
+.home-movies {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: scroll;
+    padding: 10px 0 20px 0;
+}
+
+.home-nav-item {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.home-movie {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+/* Movie detail */
+
+.movie-year {
+    font-weight: 200;
+}
+
+.movie-artwork {
+    margin: 0 auto 0 auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.movie-crew {
+    list-style-type: none;
+    font-size: 1.2rem;
+    padding-left: 0;
+}
+
+.movie-crew li {
+    margin-bottom: 10px;
+}
+
+.movie-links {
+    display: flex;
+    gap: 20px;
+}
+
+.movie-link {
+    border: black 2px solid;
+    border-radius: 2px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+}
+
+/* Forms */
+input[type="button"],
+input[type="submit"] {
+    background-color: #2ea44f;
+    border: 0;
+    border-radius: 0.375rem;
+    padding: 10px 20px 10px 20px;
+    color: white;
+    font-size: 0.925rem;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+}
+
+.login {
+    display: flex;
+}
+
+.login-form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Flash messages */
+.flash {
+    padding: 10px 20px 10px 20px;
+    margin: 10px auto 0 auto;
+    max-width: 400px;
+    font-size: 1rem;
+}
+
+.text-info {
+    color: #075985;
+}
+
+.background-info {
+    background-color: #e0f2fe;
+}
+
+.text-success {
+    color: #166534;
+}
+
+.background-success {
+    background-color: #e7fcdc;
+}
+
+.text-warning {
+    color: #854d0e;
+}
+
+.background-warning {
+    background-color: #fef9c3;
+}
+
+.text-error {
+    color: #991b1b;
+}
+
+.background-error {
+    background-color: #fee2e2;
 }

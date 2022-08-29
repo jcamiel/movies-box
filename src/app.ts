@@ -1,36 +1,63 @@
-import {NextFunction, Request, Response} from "express";
+import { NextFunction, Request, Response } from "express";
+import config from "./config";
+import { addSessionSupport } from "./core/session";
+import { Error } from "./core/error";
+import { createUser } from "./services/authent/user-service";
+import { addRoutes } from "./routes/init";
+import createError = require("http-errors");
+import express = require("express");
+import path = require("path");
+import cookieParser = require("cookie-parser");
+import logger = require("morgan");
+import { addHandlebarsEngine } from "./core/handlebars";
 
-const createError = require("http-errors");
-const express = require("express");
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const logger = require("morgan");
+export const app = express();
 
-const indexRouter = require("./routes");
-const usersRouter = require("./routes/users");
-
-const app = express();
-
-// view engine setup
+// View engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
+addHandlebarsEngine(app);
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser(config.APP_SECRET));
+
+addSessionSupport(app);
+
+// Static files
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+// Inject potential user in any response
+app.use((req: Request, res: Response, next: NextFunction) => {
+    res.locals.user = req.session.user;
+    next();
+});
+
+// Flash messages
+app.use((req: Request, res: Response, next: NextFunction) => {
+    const messages = req.session.flashMessages;
+    delete req.session.flashMessages;
+    res.locals.flashMessages = messages;
+    next();
+});
+
+// Error validations
+app.use((req: Request, res: Response, next: NextFunction) => {
+    const errors = req.session.errors;
+    delete req.session.errors;
+    res.locals.errors = errors;
+    next();
+});
+
+addRoutes(app);
 
 // Catch 404 and forward to error handler
-app.use(function (req: Request, res: Response, next: NextFunction) {
+app.use((req: Request, res: Response, next: NextFunction) => {
     next(createError(404));
 });
 
 // Error handler
-app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
+app.use((err: Error, req: Request, res: Response) => {
     // Set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};
@@ -40,4 +67,5 @@ app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
     res.render("error");
 });
 
-module.exports = app;
+// Create a dummy user
+createUser("bob78", "Bob", "12345678");
