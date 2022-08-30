@@ -5,7 +5,7 @@ export interface Movie {
     artwork?: string;
     writers: string[];
     runningTimes: number;
-    releaseDate: string;
+    releaseDate: Date;
     actors: string[];
     boxOffice: {
         min: number;

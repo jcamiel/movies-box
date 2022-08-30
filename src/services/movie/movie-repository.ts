@@ -10,7 +10,7 @@ const movies: Movie[] = [
         slug: "dune-1984",
         writers: ["David Lynch"],
         runningTimes: 137,
-        releaseDate: "1984-12-03",
+        releaseDate: new Date("1984-12-03"),
         actors: [
             "Kyle MacLachlan",
             "Jürgen Prochnow",
@@ -35,7 +35,7 @@ const movies: Movie[] = [
         slug: "the-dark-crystal",
         writers: ["David Odell", "Jim Henson"],
         runningTimes: 93,
-        releaseDate: "1982-12-17",
+        releaseDate: new Date("1982-12-17"),
         actors: [
             "Stephen Garlick",
             "Lisa Maxwell",
@@ -58,7 +58,7 @@ const movies: Movie[] = [
         slug: "blade-runner",
         writers: ["Hampton Fancher", "David Peoples"],
         runningTimes: 117,
-        releaseDate: "1982-06-25",
+        releaseDate: new Date("1982-06-25"),
         actors: [
             "Harrison Ford",
             "Rutger Hauer",
@@ -80,7 +80,7 @@ const movies: Movie[] = [
         director: "Steven Lisberger",
         writers: ["Steven Lisberger", "Bonnie MacBird", "Charles S. Haas"],
         runningTimes: 96,
-        releaseDate: "1982-07-09",
+        releaseDate: new Date("1982-07-09"),
         actors: [
             "Jeff Bridges",
             "Bruce Boxleitner",
@@ -104,7 +104,7 @@ const movies: Movie[] = [
         director: "John Milius",
         writers: ["John Milius", "Oliver Stone"],
         runningTimes: 129,
-        releaseDate: "1982-05-14",
+        releaseDate: new Date("1982-05-14"),
         actors: [
             "Arnold Schwarzenegger",
             "James Earl Jones",
@@ -133,7 +133,7 @@ const movies: Movie[] = [
         slug: "raiders-of-the-lost-ark",
         writers: ["Lawrence Kasdan"],
         runningTimes: 115,
-        releaseDate: "1981-06-12",
+        releaseDate: new Date("1981-06-12"),
         actors: [
             "Harrison Ford",
             "Karen Allen",
@@ -158,7 +158,7 @@ const movies: Movie[] = [
         slug: "top-gun",
         writers: ["Jim Cash", "Jack Epps Jr."],
         runningTimes: 110,
-        releaseDate: "1986-05-12",
+        releaseDate: new Date("1986-05-12"),
         actors: [
             "Tom Cruise",
             "Kelly McGillis",

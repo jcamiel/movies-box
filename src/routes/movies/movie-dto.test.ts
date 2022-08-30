@@ -9,7 +9,7 @@ test("returns a dto form a movie", () => {
         director: "John Milius",
         writers: ["John Milius", "Oliver Stone"],
         runningTimes: 129,
-        releaseDate: "1982-05-14",
+        releaseDate: new Date("1982-05-14"),
         actors: [
             "Arnold Schwarzenegger",
             "James Earl Jones",
