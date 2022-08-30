@@ -9,6 +9,7 @@ HTTP/* 302
 [Asserts]
 header "Location" == "/login"
 
+
 # Login
 GET http://localhost:3000/login
 

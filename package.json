@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "npm run clean && npx tsc && npm run copy-files",
+    "build": "npx tsc && npm run copy-files",
     "clean": "rimraf dist/",
-    "copy-files": "copyfiles --up 1 src/public/**/* src/bin/* src/views/**/* src/views/* dist",
+    "copy-files": "copyfiles --up 1 src/public/**/* src/public/* src/bin/* src/views/**/* src/views/* dist",
     "start": "node dist/bin/www",
+    "watch": "npx nodemon --quiet --watch dist dist/bin/www.js",
     "test": "jest",
     "fmt": "npx prettier --write src/",
     "lint": "npx eslint src/"
@@ -38,6 +39,7 @@
     "copyfiles": "^2.4.1",
     "eslint": "^8.22.0",
     "jest": "^28.1.3",
+    "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^28.0.8",

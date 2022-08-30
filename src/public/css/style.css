@@ -84,8 +84,11 @@ header a {
     text-shadow: 1px 1px 2px black, 0 0 25px #ff00fb, 0 0 5px darkblue;
 }
 
-h2 a {
-    color: #0f172a;
+h1 {
+    font-size: 2.7rem;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 header a:link,
@@ -108,16 +111,16 @@ h2 a:active {
     text-decoration: none;
 }
 
-h1 {
-    font-size: 2.7rem;
-    font-weight: bold;
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
-
 h2 {
     font-size: 2rem;
     font-weight: bold;
+}
+
+h2 a {
+    color: #0f172a;
+}
+
+h2 > div {
     border-bottom: 5px solid #6a22a6;
     display: inline;
 }

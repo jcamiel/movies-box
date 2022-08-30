@@ -18,9 +18,7 @@ export function findMovies(search: string, sort: "name" | "release"): Movie[] {
             movie.actors.some((actor) =>
                 actor.toLowerCase().includes(searchNormalized)
             ) ||
-            movie.writers.some((actor) =>
-                actor.toLowerCase().includes(searchNormalized)
-            )
+            movie.director.toLowerCase().includes(searchNormalized)
     );
 
     switch (sort) {

@@ -1,5 +1,8 @@
-<div class="login">
-    <form class="search-form">
-        <input class="search-input" type="text" name="username" id="username" />
-    </form>
-</div>
+{{#section "script"}}
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/js/search.js" defer></script>
+{{/section}}
+
+<h2><div>Search</div></h2>
+
+<div id="search" v-cloak>\{{ message }}</div>

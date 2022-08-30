@@ -7,12 +7,20 @@ import { FlashMessage } from "./flash-message";
 import { ValidationError } from "express-validator";
 
 export function addSessionSupport(app: Express) {
+    // Demo: leaking of 'X-Powered-By' headers
+    app.disable("x-powered-by");
+
     app.use(
         session({
             resave: false, // don't save session if unmodified
             saveUninitialized: true, // don't create session until something stored
             secret: config.APP_SECRET,
             name: "x-session-id",
+
+            // Demo: cookie SameSite attribute
+            cookie: {
+                sameSite: "strict",
+            },
         })
     );
 }

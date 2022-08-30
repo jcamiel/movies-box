@@ -25,6 +25,17 @@ function gte<T>(v1: T, v2: T): boolean {
     return v1 >= v2;
 }
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
+function section(name, options) {
+    // @ts-ignore
+    if (!this.sections) this.sections = {};
+
+    // @ts-ignore
+    this.sections[name] = options.fn(this);
+    return null;
+}
+
 export function addHandlebarsEngine(app: Express) {
     app.set("view engine", "hbs");
     hbs.registerHelper("eq", eq);
@@ -33,4 +44,5 @@ export function addHandlebarsEngine(app: Express) {
     hbs.registerHelper("gt", gt);
     hbs.registerHelper("lte", lte);
     hbs.registerHelper("gte", gte);
+    hbs.registerHelper("section", section);
 }

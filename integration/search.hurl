@@ -1,6 +1,7 @@
 GET http://localhost:3000/api/search
 HTTP/* 400
 
+
 GET http://localhost:3000/api/search
 [QueryStringParams]
 q: 1982
@@ -8,6 +9,9 @@ q: 1982
 HTTP/* 200
 [Asserts]
 jsonpath "$" count == 4
+jsonpath "$[0].name" == "Blade Runner"
+jsonpath "$[0].director" == "Ridley Scott"
+jsonpath "$[0].releaseDate" == "1982-06-25"
 
 
 GET http://localhost:3000/api/search
@@ -17,3 +21,6 @@ q: sean young
 HTTP/* 200
 [Asserts]
 jsonpath "$" count == 2
+jsonpath "$[1].name" == "Dune"
+jsonpath "$[1].director" == "David Lynch"
+jsonpath "$[1].releaseDate" == "1984-12-03"
