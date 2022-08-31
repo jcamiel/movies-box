@@ -11,7 +11,7 @@ HTTP/* 200
 jsonpath "$" count == 4
 jsonpath "$[0].name" == "Blade Runner"
 jsonpath "$[0].director" == "Ridley Scott"
-jsonpath "$[0].releaseDate" == "1982-06-25"
+jsonpath "$[0].release_date" == "1982-06-25"
 
 
 GET http://localhost:3000/api/search
@@ -23,4 +23,4 @@ HTTP/* 200
 jsonpath "$" count == 2
 jsonpath "$[1].name" == "Dune"
 jsonpath "$[1].director" == "David Lynch"
-jsonpath "$[1].releaseDate" == "1984-12-03"
+jsonpath "$[1].release_date" == "1984-12-03"

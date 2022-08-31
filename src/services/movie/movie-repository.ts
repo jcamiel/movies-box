@@ -127,7 +127,7 @@ const movies: Movie[] = [
         },
     },
     {
-        name: "Raiders of the Lost Ark",
+        name: "Indiana Jones and the Raiders of the Lost Ark",
         artwork: "raiders-of-the-lost-ark.jpg",
         director: "Steven Spielberg",
         slug: "raiders-of-the-lost-ark",

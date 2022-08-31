@@ -34,8 +34,9 @@ test("returns a result form a movie", () => {
     const result = toResultMovie(movie);
     const expected: ResultMovie = {
         name: "Conan the Barbarian",
+        url: "/movies/conan-the-barbarian",
         director: "John Milius",
-        releaseDate: "1982-05-14",
+        release_date: "1982-05-14",
         actors: [
             "Arnold Schwarzenegger",
             "James Earl Jones",
@@ -48,6 +49,8 @@ test("returns a result form a movie", () => {
             "William Smith",
             "Max von Sydow",
         ],
+        artwork: "/img/conan-the-barbarian.jpg",
+        artwork_128: "/img/conan-the-barbarian-128x192.jpg",
     };
     expect(result).toStrictEqual(expected);
 });

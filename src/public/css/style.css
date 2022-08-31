@@ -202,6 +202,17 @@ input {
     padding-bottom: 2px;
 }
 
+/* Search results */
+
+.search-results {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.search-result-crew {
+    margin-left: 20px;
+}
+
 /* Forms */
 form label,
 form input {

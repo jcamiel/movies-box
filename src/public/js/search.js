@@ -65,12 +65,19 @@ createApp({
         
         <h3 v-if="resultsTitle.length">{{resultsTitle}}</h3>
         
-        <ul>
+        <ul class="search-results">
             <li v-for="movie in movies">
-                <div class="result-movie">
-                    <div>{{movie.name}} {{movie.releaseDate}}</div>
-                    <div>Directors: {{movie.director}}</div>
-                    <div>Actors: {{movie.actors}}</div>
+                <div class="search-result-movie flex align-items-center">
+                    <div class="search-result-thumbnail">
+                        <a :href="movie.url">
+                            <img :src="movie.artwork_128" :alt="movie.name" width=100 height=150>
+                        </a> 
+                    </div>
+                    <div class="search-result-crew">
+                        <div>{{movie.name}} {{movie.release_date}}</div>
+                        <div>Directors: {{movie.director}}</div>
+                        <div>Actors: {{movie.actors}}</div>
+                    </div>
                 </div>
             </li>
         </ul>
