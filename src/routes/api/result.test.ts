@@ -1,7 +1,7 @@
 import { Movie } from "../../services/movie/movie";
-import { MovieDto, toMovieDto } from "./movie-dto";
+import { ResultMovie, toResultMovie } from "./result";
 
-test("returns a dto form a movie", () => {
+test("returns a result form a movie", () => {
     const movie: Movie = {
         name: "Conan the Barbarian",
         artwork: "conan-the-barbarian.jpg",
@@ -31,19 +31,23 @@ test("returns a dto form a movie", () => {
                 "https://en.wikipedia.org/wiki/Conan_the_Barbarian_(1982_film)",
         },
     };
-    const movieDto = toMovieDto(movie);
-    const expected: MovieDto = {
+    const result = toResultMovie(movie);
+    const expected: ResultMovie = {
         name: "Conan the Barbarian",
-        year: 1982,
         director: "John Milius",
-        writers: "John Milius, Oliver Stone",
-        actors: "Arnold Schwarzenegger, James Earl Jones, Sandahl Bergman, Ben Davidson, Cassandra Gaviola, Gerry Lopez, Mako, Valerie Quennessen, William Smith, Max von Sydow",
-        artwork: "conan-the-barbarian.jpg",
-        releaseDate: "May 14, 1982",
-        url: "/movies/conan-the-barbarian",
-        imdbUrl: "",
-        wikipediaUrl:
-            "https://en.wikipedia.org/wiki/Conan_the_Barbarian_(1982_film)",
+        releaseDate: "1982-05-14",
+        actors: [
+            "Arnold Schwarzenegger",
+            "James Earl Jones",
+            "Sandahl Bergman",
+            "Ben Davidson",
+            "Cassandra Gaviola",
+            "Gerry Lopez",
+            "Mako",
+            "Valerie Quennessen",
+            "William Smith",
+            "Max von Sydow",
+        ],
     };
-    expect(movieDto).toStrictEqual(expected);
+    expect(result).toStrictEqual(expected);
 });

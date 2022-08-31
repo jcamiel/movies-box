@@ -16,7 +16,7 @@ export interface MovieDto {
 export function toMovieDto(movie: Movie): MovieDto {
     const month = movie.releaseDate.toLocaleString("en-US", { month: "long" });
     const year = movie.releaseDate.getFullYear();
-    const day = movie.releaseDate.getDay();
+    const day = movie.releaseDate.getDate();
     const releaseDateFormatted = `${month} ${day}, ${year}`;
     return {
         name: movie.name,
