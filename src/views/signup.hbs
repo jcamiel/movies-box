@@ -1,7 +1,7 @@
-<h2><div>Login</div></h2>
+<h2><div>Sign up</div></h2>
 
-<div class="login">
-    <form class="login-form" method="post" action="/login">
+<div class="signup">
+    <form class="signup-form" method="post" action="/signup">
         {{#if (gt errors.length 0)}}
             <div class="errors">
                 {{#each errors}}
@@ -17,8 +17,20 @@
             <input type="text" name="username" id="username" />
         </p>
         <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" />
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" />
+        </p>
+        <p>
             <label for="password">Password:</label>
             <input type="text" name="password" id="password" />
+        </p>
+        <p>
+            <label for="password-confirm">Password:</label>
+            <input type="text" name="password-confirm" id="password-confirm" />
         </p>
         <p>
             <input type="submit" value="Login" />

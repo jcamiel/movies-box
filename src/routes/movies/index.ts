@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { findMovieBySlug } from "../../services/movie/movie-service";
+import * as MovieService from "../../services/movie/movie-service";
 import { toMovieDto } from "./movie-dto";
 import express = require("express");
 
@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get("/:movieSlug", (req: Request, res: Response) => {
     const movieSlug = req.params.movieSlug;
-    const movie = findMovieBySlug(movieSlug);
+    const movie = MovieService.findMovieBySlug(movieSlug);
     if (!movie) {
         res.sendStatus(404);
         return;

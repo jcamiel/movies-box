@@ -1,4 +1,4 @@
-import { Movie } from "../../services/movie/movie";
+import { Movie } from "../../../services/movie/movie";
 import { ResultMovie, toResultMovie } from "./result";
 
 test("returns a result form a movie", () => {

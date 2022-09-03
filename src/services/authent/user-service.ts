@@ -31,6 +31,7 @@ export function authenticate(
 
 export function createUser(
     username: string,
+    email: string,
     name: string,
     password: string
 ): User {
@@ -39,15 +40,31 @@ export function createUser(
     const user = {
         id: 1,
         username: username,
+        email: email,
         name: name,
         salt: salt,
         hash: hash,
     };
-    console.log(`Create user username: ${username}`);
+    console.log(`Create user username: ${username} email: ${email}`);
     users[username] = user;
     return user;
 }
 
 function generateHash(password: string): Buffer {
     return crypto.pbkdf2Sync(password, config.APP_SALT, 2000, 64, "sha512");
+}
+
+export function findUserByEmail(email: string): User | undefined {
+    return Object.values(users).find((user) => user.email === email);
+}
+
+export function findUserByUsername(username: string): User | undefined {
+    return Object.values(users).find((user) => user.username === username);
+}
+
+export function deleteUser(username: string) {
+    const user = findUserByUsername(username);
+    if (user) {
+        delete users[username];
+    }
 }

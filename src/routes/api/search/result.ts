@@ -1,5 +1,5 @@
-import { Movie } from "../../services/movie/movie";
-import { toISO8601Short } from "../../utils/date";
+import { Movie } from "../../../services/movie/movie";
+import { toISO8601Short } from "../../../utils/date";
 
 export interface ResultMovie {
     readonly name: string;

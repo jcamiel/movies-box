@@ -54,11 +54,11 @@ createApp({
             return new Date(movie.release_date).getFullYear();
         },
         highlight(value) {
-            const re = RegExp(`(${this.search})`, "ig")
-            return value.replace(re, '<span class="highlight">$1</span>')
+            const re = RegExp(`(${this.search})`, "ig");
+            return value.replace(re, '<span class="highlight">$1</span>');
         },
         highlightActors(movie) {
-            return this.highlight(movie.actors.join(', '));
+            return this.highlight(movie.actors.join(", "));
         },
         highlightReleaseDate(movie) {
             const year = new Date(movie.release_date).getFullYear().toString();

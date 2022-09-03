@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { User } from "../services/authent/user";
-import { authenticate } from "../services/authent/user-service";
+import * as UserService from "../services/authent/user-service";
 import csrf from "../core/csrf";
 import { FlashMessageType } from "../core/flash-message";
 import express = require("express");
@@ -34,7 +34,7 @@ router.post(
             return;
         }
 
-        authenticate(
+        UserService.authenticate(
             req.body.username,
             req.body.password,
             (user: User | null, err: Error | null) => {

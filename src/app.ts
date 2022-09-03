@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import config from "./config";
 import { addSessionSupport } from "./core/session";
 import { Error } from "./core/error";
-import { createUser } from "./services/authent/user-service";
 import { addRoutes } from "./routes/init";
 import createError = require("http-errors");
 import express = require("express");
@@ -10,6 +9,7 @@ import path = require("path");
 import cookieParser = require("cookie-parser");
 import logger = require("morgan");
 import { addHandlebarsEngine } from "./core/handlebars";
+import * as UserService from "./services/authent/user-service";
 
 export const app = express();
 
@@ -68,4 +68,4 @@ app.use((err: Error, req: Request, res: Response) => {
 });
 
 // Create a dummy user
-createUser("bob78", "Bob", "12345678");
+UserService.createUser("bob78", "bob78@example.net", "Bob", "12345678");

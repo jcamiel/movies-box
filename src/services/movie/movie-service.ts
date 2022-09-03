@@ -6,7 +6,6 @@ export function findMovieBySlug(slug: string): Movie | undefined {
 }
 
 export function findMovies(search: string, sort: "name" | "release"): Movie[] {
-    console.log(search);
     const searchNormalized = search.toLowerCase();
     const results = movies.filter(
         (movie) =>
