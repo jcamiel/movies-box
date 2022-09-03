@@ -207,12 +207,17 @@ input {
 .search-results {
     list-style-type: none;
     padding-left: 0;
+    max-width: 800px;
 }
 
 .search-result-crew {
     margin-left: 20px;
 }
 
+.highlight {
+    background-color: yellow;
+    color: black;
+}
 /* Forms */
 form label,
 form input {

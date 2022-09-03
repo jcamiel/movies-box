@@ -50,6 +50,26 @@ createApp({
                 .then((response) => response.json())
                 .then((data) => (this.movies = data));
         },
+        getReleaseYear(movie) {
+            return new Date(movie.release_date).getFullYear();
+        },
+        highlight(value) {
+            const re = RegExp(`(${this.search})`, "ig")
+            return value.replace(re, '<span class="highlight">$1</span>')
+        },
+        highlightActors(movie) {
+            return this.highlight(movie.actors.join(', '));
+        },
+        highlightReleaseDate(movie) {
+            const year = new Date(movie.release_date).getFullYear().toString();
+            return this.highlight(year);
+        },
+        highlightName(movie) {
+            return this.highlight(movie.name);
+        },
+        highlightDirector(movie) {
+            return this.highlight(movie.director);
+        },
     },
     template: `
 <div>
@@ -74,9 +94,11 @@ createApp({
                         </a> 
                     </div>
                     <div class="search-result-crew">
-                        <div>{{movie.name}} {{movie.release_date}}</div>
-                        <div>Directors: {{movie.director}}</div>
-                        <div>Actors: {{movie.actors}}</div>
+                        <div>
+                            <b v-html="highlightName(movie)"></b> (<span class="search-result-year" v-html="highlightReleaseDate(movie)"></span>)
+                        </div>
+                        <div><b>Directors:</b> <span v-html="highlightDirector(movie)"></span></div>
+                        <div><b>Actors:</b> <span v-html="highlightActors(movie)"></span></div>
                     </div>
                 </div>
             </li>

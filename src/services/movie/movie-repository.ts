@@ -40,7 +40,7 @@ const movies: Movie[] = [
             "Stephen Garlick",
             "Lisa Maxwell",
             "Billie Whitelaw",
-            "Percy Edwards]",
+            "Percy Edwards",
         ],
         boxOffice: {
             min: 41400000,
