@@ -178,6 +178,10 @@ input {
         rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
+.movie-detail {
+    margin: 20px;
+}
+
 .movie-crew {
     list-style-type: none;
     font-size: 1.2rem;
@@ -196,10 +200,16 @@ input {
 .movie-link {
     border: black 2px solid;
     border-radius: 2px;
-    padding-top: 2px;
-    padding-right: 2px;
-    padding-left: 2px;
-    padding-bottom: 2px;
+    padding: 2px;
+}
+
+.movie-fav-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.movie-fav-icon {
+    margin-right: 5px;
 }
 
 /* Search results */
@@ -235,6 +245,62 @@ input[type="submit"] {
     font-weight: bold;
     box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px,
         rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+}
+
+button {
+    background-color: #2ea44f;
+    border: 0;
+    border-radius: 0.375rem;
+    padding: 10px 20px 10px 20px;
+    color: white;
+    font-size: 0.925rem;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+}
+
+button {
+    border: 0;
+    border-radius: 0.375rem;
+    padding: 10px 20px 10px 20px;
+    font-size: 0.925rem;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+}
+
+button.small {
+    border: 0;
+    border-radius: 0.375rem;
+    padding: 5px 10px 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+}
+
+button.primary:active {
+    background-color: #278c42;
+    transform: translateY(2px);
+    box-shadow: rgba(50, 50, 93, 0.25) 0 1px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0 0px 3px -1px;
+}
+
+button.secondary:active {
+    background-color: #da5301;
+    transform: translateY(2px);
+    box-shadow: rgba(50, 50, 93, 0.25) 0 1px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0 0px 3px -1px;
+}
+
+.primary {
+    background-color: #2ea44f;
+    color: white;
+}
+
+.secondary {
+    background-color: #fd6300;
+    color: white;
 }
 
 /* Login */

@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import config from "./config";
+import * as config from "./config";
 import { addSessionSupport } from "./core/session";
 import { Error } from "./core/error";
 import { addRoutes } from "./routes/init";

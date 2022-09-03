@@ -1,7 +1,7 @@
 import { Express } from "express";
 
 import session = require("express-session");
-import config from "../config";
+import * as config from "../config";
 import { User } from "../services/authent/user";
 import { FlashMessage } from "./flash-message";
 import { ValidationError } from "express-validator";

@@ -9,9 +9,18 @@ import { body, validationResult } from "express-validator";
 const router = express.Router();
 
 router.get("/", csrf, (req: Request, res: Response) => {
+    let postUrl;
+    if (typeof req.query.back == "string") {
+        const param = encodeURIComponent(req.query.back);
+        postUrl = `/login?back=${param}`;
+    } else {
+        postUrl = "/login";
+    }
+
     res.render("login", {
         title: "Login",
         csrfToken: req.csrfToken(),
+        postUrl: postUrl,
     });
 });
 
@@ -51,7 +60,22 @@ router.post(
                                 text: `Welcome back ${user.name}!`,
                             },
                         ];
-                        res.redirect("/my-movies");
+
+                        // Whitelist of authorized redirect to prevent open redirects.
+                        const whitelist = [/\/my-movies/, /\/movies\/.*/];
+                        const defaultUrl = "/my-movies";
+                        const backUrlParam = req.query.back;
+                        let backUrl: string;
+                        if (typeof backUrlParam == "string") {
+                            backUrl = backUrlParam as string;
+                        } else {
+                            backUrl = defaultUrl;
+                        }
+                        if (whitelist.some((r) => backUrl.match(r))) {
+                            res.redirect(backUrl);
+                        } else {
+                            res.redirect(defaultUrl);
+                        }
                     });
                 } else {
                     req.session.flashMessages = [

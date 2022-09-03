@@ -24,3 +24,13 @@ jsonpath "$" count == 2
 jsonpath "$[1].name" == "Dune"
 jsonpath "$[1].director" == "David Lynch"
 jsonpath "$[1].release_date" == "1984-12-03"
+
+
+# Verify that we don't have cache on search results
+GET http://localhost:3000/api/search
+[QueryStringParams]
+q: sean young
+
+HTTP/* 200
+[Asserts]
+header "ETag" not exists

@@ -1,7 +1,7 @@
 <h2><div>Login</div></h2>
 
 <div class="login">
-    <form class="login-form" method="post" action="/login">
+    <form class="login-form" method="post" action="{{{postUrl}}}">
         {{#if (gt errors.length 0)}}
             <div class="errors">
                 {{#each errors}}

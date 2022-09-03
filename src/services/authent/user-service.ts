@@ -1,5 +1,5 @@
 import { User, users } from "./user";
-import config from "../../config";
+import * as config from "../../config";
 import crypto = require("crypto");
 
 type AuthenticateFunction = (user: User | null, error: Error | null) => void;

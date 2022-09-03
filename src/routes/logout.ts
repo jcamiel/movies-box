@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", (req: Request, res: Response) => {
     // destroy the user's session to log them out
     // will be re-created next request
-    req.session.destroy(function () {
+    req.session.destroy(() => {
         res.redirect("/");
     });
 });

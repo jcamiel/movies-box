@@ -1,3 +1,8 @@
+{{#section "script"}}
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/js/movie.js" defer></script>
+{{/section}}
+
 <h2><div><a href="{{movie.url}}">{{movie.name}}
             <span class="movie-year">({{movie.year}})</span></a></div></h2>
 
@@ -11,7 +16,7 @@
         />
     </div>
 
-    <div class="col">
+    <div class="col movie-detail">
         <div>
             <ul class="movie-crew">
                 <li><b>Director:</b> {{movie.director}}</li>
@@ -20,31 +25,44 @@
                 <li><b>Release date:</b> {{movie.releaseDate}}</li>
             </ul>
         </div>
+
         <div class="movie-links">
-            {{#if movie.wikipediaUrl}}
-                <div class="movie-link">
-                    <a href="{{movie.wikipediaUrl}}">
-                        <img
+        {{#if movie.wikipediaUrl}}
+            <div class="movie-link">
+                <a href="{{movie.wikipediaUrl}}">
+                    <img
                             src="/img/wikipedia-icon.svg"
                             width="32px"
                             height="32px"
                             alt="Wikipedia"
-                        />
-                    </a>
-                </div>
-            {{/if}}
-            {{#if movie.imdbUrl}}
-                <div class="movie-link">
-                    <a href="{{movie.imdbUrl}}">
-                        <img
+                    />
+                </a>
+            </div>
+        {{/if}}
+        {{#if movie.imdbUrl}}
+            <div class="movie-link">
+                <a href="{{movie.imdbUrl}}">
+                    <img
                             src="/img/imdb-icon.svg"
                             width="32px"
                             height="32px"
                             alt="IMDb"
-                        />
-                    </a>
-                </div>
-            {{/if}}
+                    />
+                </a>
+            </div>
+        {{/if}}
+        </div>
+
+        <div
+                class="movie-fav-button"
+                {{#if user }}
+                data-authenticated="true"
+                data-favorite="false"
+                {{else}}
+                data-authenticated="false"
+                data-favorite="false"
+                {{/if}}
+                v-cloak>
         </div>
 
     </div>
