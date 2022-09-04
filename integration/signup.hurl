@@ -50,7 +50,7 @@ xpath "string(//div[@class='errors'])" contains "E-mail already in use"
 
 # Create a user, all conditions verified
 # First we obtain an available username
-GET http://localhost:3000/api/available-username
+GET http://localhost:3000/api/usernames/available
 
 HTTP/* 200
 [Captures]

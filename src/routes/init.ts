@@ -9,6 +9,8 @@ import movies from "./movies";
 import search from "./search";
 import searchApi from "./api/search/search-api";
 import userApi from "./api/user/user-api";
+import usernameApi from "./api/user/username-api";
+import favoriteApi from "./api/favorite/favorite-api";
 
 export function addRoutes(app: Express) {
     app.use("/", home);
@@ -20,5 +22,7 @@ export function addRoutes(app: Express) {
     app.use("/search", search);
 
     app.use("/api/search", searchApi);
-    app.use("/api", userApi);
+    app.use("/api/users", userApi);
+    app.use("/api/usernames", usernameApi);
+    app.use("/api/favorites/", favoriteApi);
 }

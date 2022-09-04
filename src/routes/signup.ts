@@ -16,7 +16,6 @@ router.get("/", csrf, (req: Request, res: Response) => {
 
 const isValidUserEmail: CustomValidator = (value) => {
     const user = UserService.findUserByEmail(value);
-    console.log(`user ${user}`);
     if (user) {
         throw new Error("E-mail already in use");
     }
