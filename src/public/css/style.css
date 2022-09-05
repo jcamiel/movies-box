@@ -227,6 +227,7 @@ input {
 .highlight {
     background-color: yellow;
     color: black;
+    font-weight: bold;
 }
 /* Forms */
 form label,
