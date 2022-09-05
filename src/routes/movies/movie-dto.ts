@@ -2,6 +2,7 @@ import { Movie } from "../../services/movie/movie";
 
 export interface MovieDto {
     readonly name: string;
+    readonly id: string;
     readonly year: number;
     readonly director: string;
     readonly writers: string;
@@ -20,6 +21,7 @@ export function toMovieDto(movie: Movie): MovieDto {
     const releaseDateFormatted = `${month} ${day}, ${year}`;
     return {
         name: movie.name,
+        id: movie.slug,
         year: year,
         director: movie.director,
         writers: movie.writers.join(", "),

@@ -41,6 +41,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     next();
 });
 
+// Desactivate ETag for dynamic pages
+app.set("etag", false);
+
 // Error validations
 app.use((req: Request, res: Response, next: NextFunction) => {
     const errors = req.session.errors;

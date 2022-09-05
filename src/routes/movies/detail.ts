@@ -20,7 +20,7 @@ router.get("/:movieSlug", (req: Request, res: Response) => {
     }
 
     const movieDto = toMovieDto(movie);
-    res.render("movies/index", {
+    res.render("movies/detail", {
         movie: movieDto,
         favorite: isFavorite,
     });

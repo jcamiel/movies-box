@@ -33,7 +33,7 @@ GET http://localhost:3000/my-movies
 
 HTTP/* 200
 [Asserts]
-body contains "bob78"
+body contains "Bob"
 
 
 # Logout

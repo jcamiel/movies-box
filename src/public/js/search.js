@@ -1,7 +1,5 @@
 /* eslint-disable no-undef */
-const { createApp } = Vue;
-
-createApp({
+Vue.createApp({
     data() {
         return {
             search: "",

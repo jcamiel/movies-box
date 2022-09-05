@@ -4,15 +4,11 @@ import * as MovieService from "../../../services/movie/movie-service";
 import { query, validationResult } from "express-validator";
 import { toResultMovie } from "./result";
 import { Movie } from "../../../services/movie/movie";
-import nocache from "nocache";
-import { removeEtagHeader } from "../../../utils/response";
 
 const router = express.Router();
 
 router.get(
     "/",
-    nocache(),
-    removeEtagHeader,
     query("q").exists().escape().trim(),
     (req: Request, res: Response) => {
         const errors = validationResult(req);

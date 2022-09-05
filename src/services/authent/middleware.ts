@@ -7,7 +7,7 @@ function authenticated(req: Request, res: Response, next: NextFunction) {
     } else {
         if (req.baseUrl.startsWith("/api")) {
             console.log("Authenticated access needed, return 401");
-            res.status(401).json({message: "Unauthorized"});
+            res.status(401).json({ message: "Unauthorized" });
         } else {
             console.log("Authenticated access needed, redirect to login");
             res.redirect("/login");

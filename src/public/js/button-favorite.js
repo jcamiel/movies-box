@@ -1,18 +1,14 @@
-/* eslint-disable no-undef */
-const { createApp } = Vue;
-
-createApp({
+export default {
+    props: {
+        movieId: String,
+        favorite: Boolean,
+    },
     data() {
         return {
-            favorite: false,
+            dataFavorite: this.favorite,
             updating: false,
         };
     },
-    mounted() {
-        const el = document.querySelector(".movie-fav-button");
-        this.favorite = el.dataset.favorite === "true";
-    },
-    computed: {},
     methods: {
         onAddFavorite() {
             this.selectFavorite(true);
@@ -26,14 +22,10 @@ createApp({
                 window.location.origin
             ).toString();
 
-            const match = window.location.href.match(/\/movies\/(.*)/);
-            if (!match) {
-                return;
-            }
             this.updating = true;
             const data = {
                 selected: selected,
-                movie_id: match[1],
+                movie_id: this.movieId,
             };
 
             fetch(url, {
@@ -49,7 +41,7 @@ createApp({
                         return;
                     }
                     if (response.status === 200) {
-                        this.favorite = selected;
+                        this.dataFavorite = selected;
                     }
                 })
                 .finally(() => {
@@ -63,9 +55,8 @@ createApp({
         },
     },
     template: `
-<div>
     <button 
-        v-show="favorite" 
+        v-show="dataFavorite" 
         :disabled="updating" 
         class="small secondary flex align-items-center" 
         @click="onRemoveFavorite"
@@ -73,14 +64,12 @@ createApp({
         <img class="movie-fav-icon" src="/img/bookmark-x-fill.svg" width=20 height="20">Remove favorite
     </button>
     <button 
-        v-show="!favorite" 
+        v-show="!dataFavorite" 
         :disabled="updating" 
         class="small primary flex align-items-center" 
         @click="onAddFavorite"
     >
         <img class="movie-fav-icon" src="/img/bookmark-star-fill.svg" width=20 height="20">Add favorite
     </button>
-
-</div>
 `,
-}).mount(".movie-fav-button");
+};

@@ -336,6 +336,12 @@ button:disabled {
     font-size: 1rem;
 }
 
+.message {
+    padding: 10px 20px 10px 20px;
+    max-width: 400px;
+    font-size: 1rem;
+}
+
 .text-info {
     color: #075985;
 }

@@ -1,0 +1,28 @@
+{{#section "script"}}
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/js/my-movies.js" type="module" defer></script>
+{{/section}}
+
+<a href="/">Home</a>
+>
+<a href="/my-movies">My Movies</a>
+
+<h2><div>{{user.name}}'s Favorites Movies</div></h2>
+
+{{#if favorites.length}}
+    <ul>
+        {{#each favorites}}
+            <li>
+                <span>{{this.name}}</span>
+                <div class="button-favorite-container">
+                    <button-favorite
+                        movie-id="{{this.id}}"
+                        :favorite="true"
+                    ></button-favorite>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p class="message text-info background-info">No favorite movie yet...</p>
+{{/if}}

@@ -35,6 +35,7 @@ test("returns a dto form a movie", () => {
     const movieDto = toMovieDto(movie);
     const expected: MovieDto = {
         name: "Conan the Barbarian",
+        id: "conan-the-barbarian",
         year: 1982,
         director: "John Milius",
         writers: "John Milius, Oliver Stone",

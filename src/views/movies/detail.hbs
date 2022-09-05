@@ -1,7 +1,11 @@
 {{#section "script"}}
     <script src="https://unpkg.com/vue@3"></script>
-    <script src="/js/movie.js" defer></script>
+    <script src="/js/detail.js" type="module" defer></script>
 {{/section}}
+
+<a href="/">Home</a>
+/
+<a href="{{movie.url}}">{{movie.name}}</a>
 
 <h2><div><a href="{{movie.url}}">{{movie.name}}
             <span class="movie-year">({{movie.year}})</span></a></div></h2>
@@ -27,36 +31,37 @@
         </div>
 
         <div class="movie-links">
-        {{#if movie.wikipediaUrl}}
-            <div class="movie-link">
-                <a href="{{movie.wikipediaUrl}}">
-                    <img
+            {{#if movie.wikipediaUrl}}
+                <div class="movie-link">
+                    <a href="{{movie.wikipediaUrl}}">
+                        <img
                             src="/img/wikipedia-icon.svg"
                             width="32px"
                             height="32px"
                             alt="Wikipedia"
-                    />
-                </a>
-            </div>
-        {{/if}}
-        {{#if movie.imdbUrl}}
-            <div class="movie-link">
-                <a href="{{movie.imdbUrl}}">
-                    <img
+                        />
+                    </a>
+                </div>
+            {{/if}}
+            {{#if movie.imdbUrl}}
+                <div class="movie-link">
+                    <a href="{{movie.imdbUrl}}">
+                        <img
                             src="/img/imdb-icon.svg"
                             width="32px"
                             height="32px"
                             alt="IMDb"
-                    />
-                </a>
-            </div>
-        {{/if}}
+                        />
+                    </a>
+                </div>
+            {{/if}}
         </div>
 
-        <div
-                class="movie-fav-button"
-                data-favorite="{{favorite}}"
-                v-cloak>
+        <div class="movie-fav-button">
+            <button-favorite
+                movie-id="{{movie.id}}"
+                :favorite="{{favorite}}"
+            ></button-favorite>
         </div>
 
     </div>
