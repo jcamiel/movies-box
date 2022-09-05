@@ -1,5 +1,9 @@
 # Favorites api is authenticated
 PUT http://localhost:3000/api/favorites
+{
+    "selected": true,
+    "movie_id": "dune-1984"
+}
 HTTP/* 401
 
 
@@ -24,4 +28,11 @@ header "Location" == "/my-movies"
 
 # Now we can use authenticated api
 PUT http://localhost:3000/api/favorites
+{
+    "selected": true,
+    "movie_id": "dune-1984"
+}
+
 HTTP/* 200
+[Asserts]
+jsonpath "$.selected" == true

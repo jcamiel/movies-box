@@ -3,6 +3,7 @@ import { ResultMovie, toResultMovie } from "./result";
 
 test("returns a result form a movie", () => {
     const movie: Movie = {
+        id: 1,
         name: "Conan the Barbarian",
         artwork: "conan-the-barbarian.jpg",
         slug: "conan-the-barbarian",

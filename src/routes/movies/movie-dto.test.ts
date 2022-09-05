@@ -3,6 +3,7 @@ import { MovieDto, toMovieDto } from "./movie-dto";
 
 test("returns a dto form a movie", () => {
     const movie: Movie = {
+        id: 1,
         name: "Conan the Barbarian",
         artwork: "conan-the-barbarian.jpg",
         slug: "conan-the-barbarian",

@@ -1,13 +1,13 @@
 import { Movie } from "./movie";
-import movies from "./movie-repository";
+import moviesRepository from "./movie-repository";
 
 export function findMovieBySlug(slug: string): Movie | undefined {
-    return movies.find((movie) => movie.slug == slug);
+    return moviesRepository.find((movie) => movie.slug == slug);
 }
 
 export function findMovies(search: string, sort: "name" | "release"): Movie[] {
     const searchNormalized = search.toLowerCase();
-    const results = movies.filter(
+    const results = moviesRepository.filter(
         (movie) =>
             movie.name.toLowerCase().includes(searchNormalized) ||
             movie.releaseDate

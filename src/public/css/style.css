@@ -280,14 +280,14 @@ button.small {
         rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
 }
 
-button.primary:active {
+button.primary:enabled:active {
     background-color: #278c42;
     transform: translateY(2px);
     box-shadow: rgba(50, 50, 93, 0.25) 0 1px 5px -1px,
         rgba(0, 0, 0, 0.3) 0 0px 3px -1px;
 }
 
-button.secondary:active {
+button.secondary:enabled:active {
     background-color: #da5301;
     transform: translateY(2px);
     box-shadow: rgba(50, 50, 93, 0.25) 0 1px 5px -1px,
@@ -302,6 +302,10 @@ button.secondary:active {
 .secondary {
     background-color: #fd6300;
     color: white;
+}
+
+button:disabled {
+    background-color: #c4bfbf;
 }
 
 /* Login */

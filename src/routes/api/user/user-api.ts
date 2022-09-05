@@ -19,10 +19,10 @@ router.delete(
         const username = req.params.username;
         const user = UserService.findUserByUsername(username);
         if (!user) {
-            return res.status(404);
+            return res.status(404).json({message: `No user with username ${username}`});
         }
         UserService.deleteUser(username);
-        res.sendStatus(200);
+        res.status(200).json({});
     }
 );
 

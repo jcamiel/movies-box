@@ -2,8 +2,9 @@ import { Movie } from "./movie";
 
 // Dark crystals 2 directors: Frank Oz
 
-const movies: Movie[] = [
+const moviesRepository: Movie[] = [
     {
+        id: 1,
         name: "Dune",
         artwork: "dune.jpg",
         director: "David Lynch",
@@ -29,6 +30,7 @@ const movies: Movie[] = [
         },
     },
     {
+        id: 2,
         name: "The Dark Crystal",
         artwork: "the-dark-crystal.jpg",
         director: "Jim Henson",
@@ -52,6 +54,7 @@ const movies: Movie[] = [
         },
     },
     {
+        id: 3,
         name: "Blade Runner",
         artwork: "blade-runner.jpg",
         director: "Ridley Scott",
@@ -74,6 +77,7 @@ const movies: Movie[] = [
         },
     },
     {
+        id: 4,
         name: "Tron",
         artwork: "tron.jpg",
         slug: "tron",
@@ -98,6 +102,7 @@ const movies: Movie[] = [
         },
     },
     {
+        id: 5,
         name: "Conan the Barbarian",
         artwork: "conan-the-barbarian.jpg",
         slug: "conan-the-barbarian",
@@ -127,6 +132,7 @@ const movies: Movie[] = [
         },
     },
     {
+        id: 6,
         name: "Indiana Jones and the Raiders of the Lost Ark",
         artwork: "raiders-of-the-lost-ark.jpg",
         director: "Steven Spielberg",
@@ -152,6 +158,7 @@ const movies: Movie[] = [
         },
     },
     {
+        id: 7,
         name: "Top Gun",
         artwork: "top-gun.jpg",
         director: "Tony Scott",
@@ -177,4 +184,4 @@ const movies: Movie[] = [
     },
 ];
 
-export default movies;
+export default moviesRepository;
