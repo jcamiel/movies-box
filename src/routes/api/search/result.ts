@@ -15,7 +15,7 @@ export function toResultMovie(movie: Movie): ResultMovie {
     // TODO: specify base url for url and resources.
     let artwork128;
     if (movie.artwork) {
-        artwork128 = movie.artwork.slice(0, -4) + "-128x192.jpg";
+        artwork128 = movie.artwork.replace("800x1200", "128x192");
     }
 
     return {

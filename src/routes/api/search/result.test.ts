@@ -5,7 +5,7 @@ test("returns a result form a movie", () => {
     const movie: Movie = {
         id: 1,
         name: "Conan the Barbarian",
-        artwork: "conan-the-barbarian.jpg",
+        artwork: "conan-the-barbarian-800x1200.jpg",
         slug: "conan-the-barbarian",
         director: "John Milius",
         writers: ["John Milius", "Oliver Stone"],

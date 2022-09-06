@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { User } from "../services/authent/user";
+import type {User} from "../services/authent/user-repository"
 import * as UserService from "../services/authent/user-service";
 import csrf from "../core/csrf";
 import { FlashMessageType } from "../core/flash-message";

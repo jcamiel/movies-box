@@ -1,12 +1,10 @@
 import { Movie } from "./movie";
 
-// Dark crystals 2 directors: Frank Oz
-
 const moviesRepository: Movie[] = [
     {
         id: 1,
         name: "Dune",
-        artwork: "dune.jpg",
+        artwork: "dune-800x1200.jpg",
         director: "David Lynch",
         slug: "dune-1984",
         writers: ["David Lynch"],
@@ -32,7 +30,7 @@ const moviesRepository: Movie[] = [
     {
         id: 2,
         name: "The Dark Crystal",
-        artwork: "the-dark-crystal.jpg",
+        artwork: "the-dark-crystal-800x1200.jpg",
         director: "Jim Henson",
         slug: "the-dark-crystal",
         writers: ["David Odell", "Jim Henson"],
@@ -56,7 +54,7 @@ const moviesRepository: Movie[] = [
     {
         id: 3,
         name: "Blade Runner",
-        artwork: "blade-runner.jpg",
+        artwork: "blade-runner-800x1200.jpg",
         director: "Ridley Scott",
         slug: "blade-runner",
         writers: ["Hampton Fancher", "David Peoples"],
@@ -79,7 +77,7 @@ const moviesRepository: Movie[] = [
     {
         id: 4,
         name: "Tron",
-        artwork: "tron.jpg",
+        artwork: "tron-800x1200.jpg",
         slug: "tron",
         director: "Steven Lisberger",
         writers: ["Steven Lisberger", "Bonnie MacBird", "Charles S. Haas"],
@@ -104,7 +102,7 @@ const moviesRepository: Movie[] = [
     {
         id: 5,
         name: "Conan the Barbarian",
-        artwork: "conan-the-barbarian.jpg",
+        artwork: "conan-the-barbarian-800x1200.jpg",
         slug: "conan-the-barbarian",
         director: "John Milius",
         writers: ["John Milius", "Oliver Stone"],
@@ -134,7 +132,7 @@ const moviesRepository: Movie[] = [
     {
         id: 6,
         name: "Indiana Jones and the Raiders of the Lost Ark",
-        artwork: "raiders-of-the-lost-ark.jpg",
+        artwork: "raiders-of-the-lost-ark-800x1200.jpg",
         director: "Steven Spielberg",
         slug: "raiders-of-the-lost-ark",
         writers: ["Lawrence Kasdan"],
@@ -160,7 +158,7 @@ const moviesRepository: Movie[] = [
     {
         id: 7,
         name: "Top Gun",
-        artwork: "top-gun.jpg",
+        artwork: "top-gun-800x1200.jpg",
         director: "Tony Scott",
         slug: "top-gun",
         writers: ["Jim Cash", "Jack Epps Jr."],

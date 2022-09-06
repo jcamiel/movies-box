@@ -9,4 +9,4 @@ export interface User {
 }
 
 // Our dummy database
-export const users: Record<string, User> = {};
+export const userRepository: Record<string, User> = {};

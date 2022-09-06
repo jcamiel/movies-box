@@ -1,4 +1,5 @@
-import { User, users } from "./user";
+import type { User} from "./user-repository";
+import { userRepository } from "./user-repository";
 import * as config from "../../config";
 import crypto = require("crypto");
 
@@ -9,7 +10,7 @@ export function authenticate(
     password: string,
     fn: AuthenticateFunction
 ) {
-    const user = users[username];
+    const user = userRepository[username];
     // Query the db for the given username
     if (!user) {
         return fn(null, null);
@@ -46,7 +47,7 @@ export function createUser(
         hash: hash,
     };
     console.log(`Create user username: ${username} email: ${email}`);
-    users[username] = user;
+    userRepository[username] = user;
     return user;
 }
 
@@ -55,16 +56,16 @@ function generateHash(password: string): Buffer {
 }
 
 export function findUserByEmail(email: string): User | undefined {
-    return Object.values(users).find((user) => user.email === email);
+    return Object.values(userRepository).find((user) => user.email === email);
 }
 
 export function findUserByUsername(username: string): User | undefined {
-    return Object.values(users).find((user) => user.username === username);
+    return Object.values(userRepository).find((user) => user.username === username);
 }
 
 export function deleteUser(username: string) {
     const user = findUserByUsername(username);
     if (user) {
-        delete users[username];
+        delete userRepository[username];
     }
 }

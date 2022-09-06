@@ -1,10 +1,9 @@
-import { Express } from "express";
-
+import type { Express } from "express";
 import session = require("express-session");
 import * as config from "../config";
-import { User } from "../services/authent/user";
-import { FlashMessage } from "./flash-message";
-import { ValidationError } from "express-validator";
+import type { User } from "../services/authent/user-repository";
+import type { FlashMessage } from "./flash-message";
+import type { ValidationError } from "express-validator";
 
 export function addSessionSupport(app: Express) {
     // Demo: leaking of 'X-Powered-By' headers
