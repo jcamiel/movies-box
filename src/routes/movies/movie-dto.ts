@@ -9,6 +9,7 @@ export interface MovieDto {
     readonly actors: string;
     readonly artwork: string | undefined;
     readonly releaseDate: string;
+    readonly runningTimes: number;
     readonly url: string;
     readonly imdbUrl: string;
     readonly wikipediaUrl: string;
@@ -28,6 +29,7 @@ export function toMovieDto(movie: Movie): MovieDto {
         actors: movie.actors.join(", "),
         artwork: movie.artwork,
         releaseDate: releaseDateFormatted,
+        runningTimes: movie.runningTimes,
         url: `/movies/${movie.slug}`,
         imdbUrl: movie.links.imdb || "",
         wikipediaUrl: movie.links.wikipedia || "",

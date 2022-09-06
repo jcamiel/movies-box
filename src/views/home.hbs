@@ -10,7 +10,7 @@
 <h3>Popular</h3>
 
 <div class="home-movies">
-    {{#each movies}}
+    {{#each popularMovies}}
         <div>
             <a href="/movies/{{this.slug}}">
                 <img
@@ -28,7 +28,7 @@
 <h3>Featured Today</h3>
 
 <div class="home-movies">
-    {{#each movies}}
+    {{#each todayMovies}}
         <div>
             <a href="/movies/{{this.slug}}">
                 <img

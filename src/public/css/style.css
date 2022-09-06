@@ -244,6 +244,11 @@ input {
     margin-bottom: auto;
 }
 
+.favorite-movie-thumbnail {
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+        rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
+}
+
 /* Search results */
 
 .search-results {
@@ -254,6 +259,11 @@ input {
 
 .search-result-crew {
     margin-left: 20px;
+}
+
+.search-result-thumbnail {
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+        rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
 
 .highlight {

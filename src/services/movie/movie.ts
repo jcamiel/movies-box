@@ -13,7 +13,7 @@ export interface Movie {
         max: number;
     };
     links: {
-        wikipedia?: string;
-        imdb?: string;
+        wikipedia: string;
+        imdb: string;
     };
 }

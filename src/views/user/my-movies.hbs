@@ -1,5 +1,5 @@
 {{#section "script"}}
-    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script src="/js/my-movies.js" type="module" defer></script>
 {{/section}}
 
@@ -17,6 +17,7 @@
                     <a href="{{this.url}}">
                         <img
                             src="img/{{this.artwork}}"
+                            class="favorite-movie-thumbnail"
                             alt="{{this.name}}"
                             width="100"
                             height="150"
@@ -26,7 +27,6 @@
                 <div class="favorite-movie-detail">
                     <div>
                         <a href="{{this.url}}">
-
                             <span
                                 class="favorite-movie-name"
                             >{{this.name}}</span>
@@ -36,7 +36,7 @@
                     <div><b>Directors:</b> <span>{{this.director}}</span></div>
                     <div><b>Actors:</b> <span>{{this.actors}}</span></div>
                 </div>
-                <div class="button-favorite-container">
+                <div class="button-favorite-container" v-cloak>
                     <button-favorite
                         movie-id="{{this.id}}"
                         :favorite="true"

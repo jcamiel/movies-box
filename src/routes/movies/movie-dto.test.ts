@@ -30,6 +30,7 @@ test("returns a dto form a movie", () => {
         links: {
             wikipedia:
                 "https://en.wikipedia.org/wiki/Conan_the_Barbarian_(1982_film)",
+            imdb: "https://www.imdb.com/title/tt0082198/",
         },
     };
     const movieDto = toMovieDto(movie);
@@ -42,8 +43,9 @@ test("returns a dto form a movie", () => {
         actors: "Arnold Schwarzenegger, James Earl Jones, Sandahl Bergman, Ben Davidson, Cassandra Gaviola, Gerry Lopez, Mako, Valerie Quennessen, William Smith, Max von Sydow",
         artwork: "conan-the-barbarian.jpg",
         releaseDate: "May 14, 1982",
+        runningTimes: 129,
         url: "/movies/conan-the-barbarian",
-        imdbUrl: "",
+        imdbUrl: "https://www.imdb.com/title/tt0082198/",
         wikipediaUrl:
             "https://en.wikipedia.org/wiki/Conan_the_Barbarian_(1982_film)",
     };

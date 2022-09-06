@@ -1,17 +1,17 @@
 import { Movie } from "./movie";
-import moviesRepository from "./movie-repository";
+import * as MovieRepository from "./movie-repository";
 
 export function findMovieBySlug(slug: string): Movie | undefined {
-    return moviesRepository.find((movie) => movie.slug == slug);
+    return MovieRepository.movies.find((movie) => movie.slug == slug);
 }
 
 export function findMovieById(id: number): Movie | undefined {
-    return moviesRepository.find((movie) => movie.id == id);
+    return MovieRepository.movies.find((movie) => movie.id == id);
 }
 
 export function findMovies(search: string, sort: "name" | "release"): Movie[] {
     const searchNormalized = search.toLowerCase();
-    const results = moviesRepository.filter(
+    const results = MovieRepository.movies.filter(
         (movie) =>
             movie.name.toLowerCase().includes(searchNormalized) ||
             movie.releaseDate

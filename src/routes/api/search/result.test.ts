@@ -30,6 +30,7 @@ test("returns a result form a movie", () => {
         links: {
             wikipedia:
                 "https://en.wikipedia.org/wiki/Conan_the_Barbarian_(1982_film)",
+            imdb: "https://www.imdb.com/title/tt0082198/",
         },
     };
     const result = toResultMovie(movie);

@@ -86,9 +86,9 @@ Vue.createApp({
         <ul class="search-results">
             <li v-for="movie in movies">
                 <div class="search-result-movie flex align-items-center">
-                    <div class="search-result-thumbnail">
+                    <div>
                         <a :href="movie.url">
-                            <img :src="movie.artwork_128" :alt="movie.name" width=100 height=150>
+                            <img class="search-result-thumbnail" :src="movie.artwork_128" :alt="movie.name" width=100 height=150>
                         </a> 
                     </div>
                     <div class="search-result-crew">
