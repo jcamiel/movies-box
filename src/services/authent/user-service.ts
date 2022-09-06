@@ -38,7 +38,7 @@ export function createUser(
     const salt = "salt";
     const hash = generateHash(password);
     const user = {
-        id: 1,
+        id: crypto.randomUUID(),
         username: username,
         email: email,
         name: name,

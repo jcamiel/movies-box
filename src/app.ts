@@ -1,15 +1,16 @@
-import { NextFunction, Request, Response } from "express";
-import * as config from "./config";
-import { addSessionSupport } from "./core/session";
-import { Error } from "./core/error";
-import { addRoutes } from "./routes/init";
+import type { NextFunction, Request, Response } from "express";
 import createError = require("http-errors");
 import express = require("express");
 import path = require("path");
 import cookieParser = require("cookie-parser");
 import logger = require("morgan");
+import * as config from "./config";
+import { addSessionSupport } from "./core/session";
+import type { Error } from "./core/error";
+import { addRoutes } from "./routes/init";
 import { addHandlebarsEngine } from "./core/handlebars";
 import * as UserService from "./services/authent/user-service";
+import * as FavoriteService from "./services/favorite/favorite-service";
 
 export const app = express();
 
@@ -71,4 +72,7 @@ app.use((err: Error, req: Request, res: Response) => {
 });
 
 // Create a dummy user
-UserService.createUser("bob78", "bob78@example.net", "Bob", "12345678");
+const user = UserService.createUser("bob78", "bob78@example.net", "Bob", "12345678");
+FavoriteService.addFavorite(user.id, 1);
+FavoriteService.addFavorite(user.id, 2);
+FavoriteService.addFavorite(user.id, 3);

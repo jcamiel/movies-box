@@ -1,5 +1,5 @@
 interface Favorite {
-    readonly userId: number;
+    readonly userId: string;
     readonly movieId: number;
 }
 

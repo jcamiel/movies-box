@@ -1,6 +1,6 @@
 // Authenticate using our plain-object database of doom!
 export interface User {
-    readonly id: number;
+    readonly id: string;
     readonly username: string;
     readonly email: string;
     readonly name: string;

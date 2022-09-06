@@ -161,8 +161,8 @@ input {
 }
 
 .home-movie {
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+        rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
 
 /* Movie detail */
@@ -174,8 +174,8 @@ input {
 .movie-artwork {
     display: block;
     margin: 0 auto 0 auto;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+        rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
 
 .movie-detail {
@@ -210,6 +210,38 @@ input {
 
 .movie-fav-icon {
     margin-right: 5px;
+}
+
+/* My movies */
+
+.favorite-movies {
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 800px;
+}
+
+.favorite-movies a {
+    color: black;
+    text-decoration: none;
+}
+
+.favorite-movie {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.favorite-movie-detail {
+    margin: 10px;
+    width: 400px;
+}
+
+.favorite-movie-name {
+    font-weight: bold;
+}
+
+.button-favorite-container {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* Search results */
@@ -284,14 +316,14 @@ button.primary:enabled:active {
     background-color: #278c42;
     transform: translateY(2px);
     box-shadow: rgba(50, 50, 93, 0.25) 0 1px 5px -1px,
-        rgba(0, 0, 0, 0.3) 0 0px 3px -1px;
+        rgba(0, 0, 0, 0.3) 0 0 3px -1px;
 }
 
 button.secondary:enabled:active {
     background-color: #da5301;
     transform: translateY(2px);
     box-shadow: rgba(50, 50, 93, 0.25) 0 1px 5px -1px,
-        rgba(0, 0, 0, 0.3) 0 0px 3px -1px;
+        rgba(0, 0, 0, 0.3) 0 0 3px -1px;
 }
 
 .primary {

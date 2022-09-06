@@ -11,6 +11,11 @@ export interface FavoriteDto {
 }
 
 export function toFavoriteDto(movie: Movie): FavoriteDto {
+    let artwork;
+    if (movie.artwork) {
+        artwork = movie.artwork.slice(0, -4) + "-128x192.jpg";
+    }
+
     const year = movie.releaseDate.getFullYear();
     return {
         name: movie.name,
@@ -18,7 +23,7 @@ export function toFavoriteDto(movie: Movie): FavoriteDto {
         year: year,
         director: movie.director,
         actors: movie.actors.join(", "),
-        artwork: movie.artwork,
+        artwork: artwork,
         url: `/movies/${movie.slug}`,
     };
 }

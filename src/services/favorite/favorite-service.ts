@@ -2,7 +2,7 @@ import favoriteRepository from "./favorite-repository";
 import * as MovieService from "../../services/movie/movie-service";
 import { Movie } from "../movie/movie";
 
-export function addFavorite(userId: number, movieId: number): boolean {
+export function addFavorite(userId: string, movieId: number): boolean {
     if (!isFavorite(userId, movieId)) {
         favoriteRepository.push({ userId: userId, movieId: movieId });
     }
@@ -10,7 +10,7 @@ export function addFavorite(userId: number, movieId: number): boolean {
     return true;
 }
 
-export function removeFavorite(userId: number, movieId: number): boolean {
+export function removeFavorite(userId: string, movieId: number): boolean {
     // Check if this movie is already in user's favorites.
     const favoriteIndex = favoriteRepository.findIndex(
         (favorite) => favorite.userId == userId && favorite.movieId == movieId
@@ -22,14 +22,14 @@ export function removeFavorite(userId: number, movieId: number): boolean {
     return true;
 }
 
-export function isFavorite(userId: number, movieId: number): boolean {
+export function isFavorite(userId: string, movieId: number): boolean {
     const favorite = favoriteRepository.find(
         (favorite) => favorite.userId == userId && favorite.movieId == movieId
     );
     return favorite != undefined;
 }
 
-export function favoritesCount(userId: number): number {
+export function favoritesCount(userId: string): number {
     const favorites = favoriteRepository.filter(
         (favorite) => favorite.userId == userId
     );
@@ -37,7 +37,7 @@ export function favoritesCount(userId: number): number {
 }
 
 export function findFavoriteMovies(
-    userId: number,
+    userId: string,
     from: number,
     to: number
 ): Movie[] {
