@@ -72,7 +72,12 @@ app.use((err: Error, req: Request, res: Response) => {
 });
 
 // Create a dummy user
-const user = UserService.createUser("bob78", "bob78@example.net", "Bob", "12345678");
+const user = UserService.createUser(
+    "bob78",
+    "bob78@example.net",
+    "Bob",
+    "12345678"
+);
 FavoriteService.addFavorite(user.id, 1);
 FavoriteService.addFavorite(user.id, 2);
 FavoriteService.addFavorite(user.id, 3);

@@ -186,18 +186,10 @@ const moviesRepository: Movie[] = [
         artwork: "aliens-800x1200.jpg",
         director: "James Cameron",
         slug: "aliens",
-        writers: [
-            "James Cameron",
-            "David Giler",
-            "Walter Hill"
-        ],
+        writers: ["James Cameron", "David Giler", "Walter Hill"],
         runningTimes: 137,
         releaseDate: new Date("1986-07-18"),
-        actors: [
-            "Sigourney Weaver",
-            "Michael Biehn",
-            "Carrie Henn"
-        ],
+        actors: ["Sigourney Weaver", "Michael Biehn", "Carrie Henn"],
         boxOffice: {
             min: 131000000,
             max: 183300000,
@@ -207,7 +199,6 @@ const moviesRepository: Movie[] = [
             imdb: "https://www.imdb.com/title/tt0090605",
         },
     },
-
 ];
 
 export default moviesRepository;

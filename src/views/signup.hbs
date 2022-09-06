@@ -1,3 +1,7 @@
+<a href="/">Home</a>
+>
+<a href="/signup">Sign Up</a>
+
 <h2><div>Sign up</div></h2>
 
 <div class="signup">
@@ -14,23 +18,38 @@
         <input type="hidden" name="_csrf" value="{{csrfToken}}" />
         <p>
             <label for="username">Username:</label>
-            <input type="text" name="username" id="username" />
+            <input
+                type="text"
+                name="username"
+                id="username"
+                autocomplete="off"
+            />
         </p>
         <p>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" />
+            <input type="text" name="name" id="name" autocomplete="off" />
         </p>
         <p>
             <label for="email">Email:</label>
-            <input type="text" name="email" id="email" />
+            <input type="email" name="email" id="email" autocomplete="off" />
         </p>
         <p>
             <label for="password">Password:</label>
-            <input type="text" name="password" id="password" />
+            <input
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="off"
+            />
         </p>
         <p>
             <label for="password-confirm">Password:</label>
-            <input type="text" name="password-confirm" id="password-confirm" />
+            <input
+                type="password"
+                name="password-confirm"
+                id="password-confirm"
+                autocomplete="off"
+            />
         </p>
         <p>
             <input type="submit" value="Login" />

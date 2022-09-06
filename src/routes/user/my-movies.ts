@@ -7,7 +7,6 @@ import { toFavoriteDto } from "./favorite-dto";
 const router = express.Router();
 
 router.get("/", authenticated, (req: Request, res: Response) => {
-
     // TODO: finalize pagination
     const page = 0;
     const count = 20;

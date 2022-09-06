@@ -18,11 +18,21 @@
         <input type="hidden" name="_csrf" value="{{csrfToken}}" />
         <p>
             <label for="username">Username:</label>
-            <input type="text" name="username" id="username" value="bob78"/>
+            <input
+                type="text"
+                name="username"
+                id="username"
+                autocomplete="off"
+            />
         </p>
         <p>
             <label for="password">Password:</label>
-            <input type="text" name="password" id="password" value="12345678"/>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="off"
+            />
         </p>
         <p>
             <input type="submit" value="Login" />

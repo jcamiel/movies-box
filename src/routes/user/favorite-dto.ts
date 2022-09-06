@@ -13,7 +13,7 @@ export interface FavoriteDto {
 export function toFavoriteDto(movie: Movie): FavoriteDto {
     let artwork;
     if (movie.artwork) {
-        artwork = movie.artwork.replace("800x1200", "128x192")
+        artwork = movie.artwork.replace("800x1200", "128x192");
     }
 
     const year = movie.releaseDate.getFullYear();

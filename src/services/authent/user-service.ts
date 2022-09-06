@@ -1,4 +1,4 @@
-import type { User} from "./user-repository";
+import type { User } from "./user-repository";
 import { userRepository } from "./user-repository";
 import * as config from "../../config";
 import crypto = require("crypto");
@@ -60,7 +60,9 @@ export function findUserByEmail(email: string): User | undefined {
 }
 
 export function findUserByUsername(username: string): User | undefined {
-    return Object.values(userRepository).find((user) => user.username === username);
+    return Object.values(userRepository).find(
+        (user) => user.username === username
+    );
 }
 
 export function deleteUser(username: string) {
