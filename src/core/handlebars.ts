@@ -1,6 +1,10 @@
 import hbs = require("hbs");
 import { Express } from "express";
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
+import handlebars_helper_range = require("handlebars-helper-range");
+
 function eq<T>(v1: T, v2: T): boolean {
     return v1 === v2;
 }
@@ -25,6 +29,10 @@ function gte<T>(v1: T, v2: T): boolean {
     return v1 >= v2;
 }
 
+function add(v1: number, v2: number): number {
+    return v1 + v2;
+}
+
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 function section(name, options) {
@@ -44,5 +52,7 @@ export function addHandlebarsEngine(app: Express) {
     hbs.registerHelper("gt", gt);
     hbs.registerHelper("lte", lte);
     hbs.registerHelper("gte", gte);
+    hbs.registerHelper("add", add);
     hbs.registerHelper("section", section);
+    hbs.registerHelper("range", handlebars_helper_range);
 }

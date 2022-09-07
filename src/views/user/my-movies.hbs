@@ -45,6 +45,23 @@
             </li>
         {{/each}}
     </ul>
+
+    {{#if (gt pages 1)}}
+        <div class="favorites-page-indicators">
+
+            {{#range 1 (add pages 1)}}
+                {{#if (eq this @root.currentPage)}}
+                    <span class="favorites-page-indicator">{{this}}</span>
+                {{else}}
+                    <span class="favorites-page-indicator"><a
+                            href="/my-movies?page={{this}}"
+                        >{{this}}</a></span>
+                {{/if}}
+            {{/range}}
+
+        </div>
+    {{/if}}
+
 {{else}}
     <p class="message text-info background-info">No favorite movie yet...</p>
 {{/if}}

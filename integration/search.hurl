@@ -8,7 +8,7 @@ q: 1982
 
 HTTP/* 200
 [Asserts]
-jsonpath "$" count == 4
+jsonpath "$" count == 5
 jsonpath "$[0].name" == "Blade Runner"
 jsonpath "$[0].director" == "Ridley Scott"
 jsonpath "$[0].release_date" == "1982-06-25"

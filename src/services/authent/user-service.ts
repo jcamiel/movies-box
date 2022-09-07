@@ -1,10 +1,18 @@
+import crypto = require("crypto");
 import type { User } from "./user-repository";
 import { userRepository } from "./user-repository";
 import * as config from "../../config";
-import crypto = require("crypto");
 
 type AuthenticateFunction = (user: User | null, error: Error | null) => void;
 
+/**
+ * Authenticates a user.
+ * @param username The user's username.
+ * @param password The user's password.
+ * @param fn A callback function to be called if the authentication succeed or failed.
+ * If the authentication succeeds, the first param of the callback is a user. If the
+ * authentication fails, the second parameter may be an error.
+ */
 export function authenticate(
     username: string,
     password: string,
@@ -30,6 +38,13 @@ export function authenticate(
     return fn(null, null);
 }
 
+/**
+ * Creates a user and returns it.
+ * @param username The user's username.
+ * @param email The user's email.
+ * @param name The user's name.
+ * @param password The user's password.
+ */
 export function createUser(
     username: string,
     email: string,
@@ -55,16 +70,32 @@ function generateHash(password: string): Buffer {
     return crypto.pbkdf2Sync(password, config.APP_SALT, 2000, 64, "sha512");
 }
 
+/**
+ * Finds a user by email.
+ * @param email The user's email.
+ *
+ * Returns a user or `undefined` if no user have been found.
+ */
 export function findUserByEmail(email: string): User | undefined {
     return Object.values(userRepository).find((user) => user.email === email);
 }
 
+/**
+ * Finds a user by username.
+ * @param username The user's username.
+ *
+ * Returns a user or `undefined` if no user have been found.
+ */
 export function findUserByUsername(username: string): User | undefined {
     return Object.values(userRepository).find(
         (user) => user.username === username
     );
 }
 
+/**
+ * Deletes a user by username.
+ * @param username The user's username.
+ */
 export function deleteUser(username: string) {
     const user = findUserByUsername(username);
     if (user) {
