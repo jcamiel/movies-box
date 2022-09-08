@@ -61,7 +61,9 @@ export function createUser(
         salt: salt,
         hash: hash,
     };
-    console.log(`Create user username: ${username} email: ${email}`);
+    console.log(
+        `\x1b[1mCreate user\x1b[0m username: \x1b[36m${username}\x1b[0m email: \x1b[36m${email}\x1b[0m`
+    );
     userRepository[username] = user;
     return user;
 }
