@@ -1,3 +1,6 @@
+/**
+ * A movie model.
+ */
 export interface Movie {
     id: number;
     name: string;

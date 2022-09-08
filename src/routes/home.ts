@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-import * as MovieRepository from "../services/movie/movie-repository";
+import type { Request, Response } from "express";
 import express = require("express");
+import * as MovieRepository from "../services/movie/movie-repository";
 
 const router = express.Router();
 

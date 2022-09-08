@@ -3,11 +3,9 @@
 /**
  * Module dependencies.
  */
-import { app } from "../app";
-import debug from "debug";
-import { Error } from "../core/error";
-const debugLog = debug("movies-box:server");
 import http = require("http");
+import { app } from "../app";
+import type { Error } from "../core/error";
 
 /**
  * Get port from environment and store in Express.
@@ -23,7 +21,6 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
@@ -31,7 +28,6 @@ server.on("listening", onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val: string) {
     const port = parseInt(val, 10);
 
@@ -51,12 +47,10 @@ function normalizePort(val: string) {
 /**
  * Event listener for HTTP server "error" event.
  */
-
 function onError(error: Error) {
     if (error.syscall !== "listen") {
         throw error;
     }
-
     const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
     // handle specific listen errors with friendly messages
@@ -77,10 +71,9 @@ function onError(error: Error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 function onListening() {
     const addr = server.address();
     const bind =
         typeof addr === "string" ? "pipe " + addr : "port " + addr?.port;
-    debugLog("Listening on " + bind);
+    console.log("Listening on " + bind);
 }

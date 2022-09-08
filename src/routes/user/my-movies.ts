@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import express = require("express");
+import { query, validationResult } from "express-validator";
 import authenticated from "../../services/authent/middleware";
 import * as FavoriteService from "../../services/favorite/favorite-service";
 import { toFavoriteDto } from "./favorite-dto";
-import { query, validationResult } from "express-validator";
 
 const router = express.Router();
 

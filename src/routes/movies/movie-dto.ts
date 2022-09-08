@@ -15,6 +15,10 @@ export interface MovieDto {
     readonly wikipediaUrl: string;
 }
 
+/**
+ * Converts a `Movie` instance to a `MovieDto`.
+ * @param movie Instance to be converted.
+ */
 export function toMovieDto(movie: Movie): MovieDto {
     const month = movie.releaseDate.toLocaleString("en-US", { month: "long" });
     const year = movie.releaseDate.getFullYear();

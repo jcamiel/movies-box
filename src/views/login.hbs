@@ -7,7 +7,7 @@
 <div class="login">
     <form class="login-form" method="post" action="{{{postUrl}}}">
         {{#if (gt errors.length 0)}}
-            <div class="errors">
+            <div class="form-errors">
                 {{#each errors}}
                     <div
                         class="flash text-error background-error"
@@ -16,26 +16,44 @@
             </div>
         {{/if}}
         <input type="hidden" name="_csrf" value="{{csrfToken}}" />
-        <p>
+
+        <div class="input-group">
             <label for="username">Username:</label>
-            <input
-                type="text"
-                name="username"
-                id="username"
-                autocomplete="off"
-            />
-        </p>
-        <p>
+            <div class="flex align-items-center">
+                <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    autocomplete="off"
+                    minlength="4"
+                    maxlength="32"
+                    pattern="[a-zA-Z0-9_-]{4,32}"
+                    title="Username must use a-z, A-Z and 0-9"
+                    required
+                />
+                <span class="input-checkmark"></span>
+            </div>
+        </div>
+
+        <div class="input-group">
             <label for="password">Password:</label>
-            <input
-                type="password"
-                name="password"
-                id="password"
-                autocomplete="off"
-            />
-        </p>
-        <p>
+            <div class="flex align-items-center">
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    autocomplete="off"
+                    minlength="6"
+                    maxlength="32"
+                    required
+                />
+                <span class="input-checkmark"></span>
+            </div>
+        </div>
+
+        <div class="input-group">
             <input type="submit" value="Login" />
-        </p>
+        </div>
+
     </form>
 </div>

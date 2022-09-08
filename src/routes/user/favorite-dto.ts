@@ -1,4 +1,4 @@
-import { Movie } from "../../services/movie/movie";
+import type { Movie } from "../../services/movie/movie";
 
 export interface FavoriteDto {
     readonly name: string;
@@ -10,6 +10,10 @@ export interface FavoriteDto {
     readonly url: string;
 }
 
+/**
+ * Converts a `Movie` instance to a `FavoriteDto`.
+ * @param movie Instance to be converted.
+ */
 export function toFavoriteDto(movie: Movie): FavoriteDto {
     let artwork;
     if (movie.artwork) {

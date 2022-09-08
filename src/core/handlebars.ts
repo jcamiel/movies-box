@@ -1,5 +1,5 @@
 import hbs = require("hbs");
-import { Express } from "express";
+import type { Express } from "express";
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
@@ -44,6 +44,10 @@ function section(name, options) {
     return null;
 }
 
+/**
+ * Sets Handlebars template engine and registers basic helpers.
+ * @param app Express application
+ */
 export function addHandlebarsEngine(app: Express) {
     app.set("view engine", "hbs");
     hbs.registerHelper("eq", eq);

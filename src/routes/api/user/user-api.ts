@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { param } from "express-validator";
 import * as UserService from "../../../services/authent/user-service";
 import express = require("express");

@@ -51,7 +51,7 @@ test("returns a result form a movie", () => {
             "William Smith",
             "Max von Sydow",
         ],
-        artwork: "/img/conan-the-barbarian.jpg",
+        artwork: "/img/conan-the-barbarian-800x1200.jpg",
         artwork_128: "/img/conan-the-barbarian-128x192.jpg",
     };
     expect(result).toStrictEqual(expected);

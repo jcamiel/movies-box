@@ -5,15 +5,18 @@ import type { User } from "../services/authent/user-repository";
 import type { FlashMessage } from "./flash-message";
 import type { ValidationError } from "express-validator";
 
+/**
+ * Adds session support to an Express application.
+ * @param app
+ */
 export function addSessionSupport(app: Express) {
-    // Demo: leaking of 'X-Powered-By' headers
-    app.disable("x-powered-by");
-
     app.use(
         session({
             resave: false, // don't save session if unmodified
             saveUninitialized: true, // don't create session until something stored
             secret: config.APP_SECRET,
+
+            // Demo: default cookie name
             name: "x-session-id",
 
             // Demo: cookie SameSite attribute

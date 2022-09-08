@@ -27,7 +27,7 @@ echo "Waiting server to be ready..."
 wait_for_url 'http://localhost:3000' 60
 
 echo "Running Hurl tests"
-hurl integration/*.hurl --test
+hurl --test integration/*.hurl
 
 kill -9 "$server_pid"
 

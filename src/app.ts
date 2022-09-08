@@ -19,6 +19,10 @@ app.set("views", path.join(__dirname, "views"));
 addHandlebarsEngine(app);
 
 app.use(logger("dev"));
+
+// Demo: leaking of 'X-Powered-By' headers
+app.disable("x-powered-by");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(config.APP_SECRET));

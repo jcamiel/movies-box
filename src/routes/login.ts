@@ -1,10 +1,10 @@
-import { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 import type { User } from "../services/authent/user-repository";
+import express = require("express");
+import { body, validationResult } from "express-validator";
 import * as UserService from "../services/authent/user-service";
 import csrf from "../core/csrf";
 import { FlashMessageType } from "../core/flash-message";
-import express = require("express");
-import { body, validationResult } from "express-validator";
 
 const router = express.Router();
 
@@ -31,6 +31,9 @@ router.post(
         .isLength({ min: 4, max: 32 })
         .trim()
         .escape(),
+    body("username", "Username must use a-z, A-Z, 0-9 or _ -").matches(
+        /^[a-zA-Z\d_-]{4,32}$/
+    ),
     body("password", "Password must 6 to 32 chars long")
         .isLength({ min: 6, max: 32 })
         .trim()

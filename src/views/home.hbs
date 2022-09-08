@@ -11,10 +11,10 @@
 
 <div class="home-movies">
     {{#each popularMovies}}
-        <div>
+        <div class="home-movie">
             <a href="/movies/{{this.slug}}">
                 <img
-                    class="home-movie"
+                    class="home-movie-image"
                     width="200px"
                     height="300px"
                     src="/img/{{this.artwork}}"
@@ -29,10 +29,10 @@
 
 <div class="home-movies">
     {{#each todayMovies}}
-        <div>
+        <div class="home-movie">
             <a href="/movies/{{this.slug}}">
                 <img
-                    class="home-movie"
+                    class="home-movie-image"
                     width="200px"
                     height="300px"
                     src="/img/{{this.artwork}}"

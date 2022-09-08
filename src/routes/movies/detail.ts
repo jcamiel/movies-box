@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
+import express = require("express");
 import * as MovieService from "../../services/movie/movie-service";
 import { toMovieDto } from "./movie-dto";
-import express = require("express");
 import * as FavoriteServices from "../../services/favorite/favorite-service";
 
 const router = express.Router();

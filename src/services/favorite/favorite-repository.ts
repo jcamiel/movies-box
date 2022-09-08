@@ -1,3 +1,6 @@
+/**
+ * User's Favorite model.
+ */
 interface Favorite {
     readonly userId: string;
     readonly movieId: number;

@@ -1,4 +1,4 @@
-import { Movie } from "../../../services/movie/movie";
+import type { Movie } from "../../../services/movie/movie";
 import { toISO8601Short } from "../../../utils/date";
 
 export interface ResultMovie {
@@ -11,6 +11,10 @@ export interface ResultMovie {
     readonly artwork_128: string | undefined;
 }
 
+/**
+ * Converts a `Movie` instance to a `ResultMovie`.
+ * @param movie Instance to be converted.
+ */
 export function toResultMovie(movie: Movie): ResultMovie {
     // TODO: specify base url for url and resources.
     let artwork128;

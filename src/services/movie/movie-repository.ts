@@ -1,5 +1,8 @@
 import { Movie } from "./movie";
 
+/**
+ * Our movie database.
+ */
 export const movies: Movie[] = [
     {
         id: 1,

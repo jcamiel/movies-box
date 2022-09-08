@@ -78,6 +78,7 @@ Vue.createApp({
                 type="text" 
                 @input="onInput" 
                 v-model="search"
+                id="search-input"
             />
         </form>
         

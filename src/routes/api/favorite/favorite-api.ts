@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import express = require("express");
 import authenticated from "../../../services/authent/middleware";
 import * as MovieService from "../../../services/movie/movie-service";

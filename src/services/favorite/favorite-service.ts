@@ -62,6 +62,7 @@ export function favoritesCount(userId: string): number {
 
 /**
  * Returns the user's favorites movies.
+ * @param userId The user's primary id.
  * @param from 0 based start index.
  * @param to 0 based end index (included in the slice)
  */

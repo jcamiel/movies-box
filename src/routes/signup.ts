@@ -1,9 +1,10 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
+import express = require("express");
+import { body, validationResult } from "express-validator";
+import type { CustomValidator } from "express-validator";
 import csrf from "../core/csrf";
-import { body, CustomValidator, validationResult } from "express-validator";
 import * as UserService from "../services/authent/user-service";
 import { FlashMessageType } from "../core/flash-message";
-import express = require("express");
 
 const router = express.Router();
 
@@ -22,7 +23,13 @@ const isValidUserEmail: CustomValidator = (value) => {
     return value;
 };
 
-// TODo add validation on username
+const isValidUsername: CustomValidator = (value) => {
+    const user = UserService.findUserByUsername(value);
+    if (user) {
+        throw new Error("Username already in use");
+    }
+    return value;
+};
 
 router.post(
     "/",
@@ -31,12 +38,20 @@ router.post(
         .isLength({ min: 4, max: 32 })
         .trim()
         .escape(),
+    body("username", "Username must use a-z, A-Z, 0-9 or _ -").matches(
+        /^[a-zA-Z\d_-]{4,32}$/
+    ),
+    body("username", "Username already in use").custom(isValidUsername),
     body("password", "Password must 6 to 32 chars long")
         .isLength({ min: 6, max: 32 })
         .trim()
         .escape(),
     body("email", "Password must 6 to 32 chars long").isEmail(),
     body("email", "E-mail already in use").custom(isValidUserEmail),
+    body("name", "Name must be 3 to 32 chars long")
+        .isLength({ min: 3, max: 32 })
+        .trim()
+        .escape(),
 
     (req: Request, res: Response) => {
         const errors = validationResult(req);

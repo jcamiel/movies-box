@@ -1,4 +1,4 @@
-import { Express } from "express";
+import type { Express } from "express";
 
 import home from "./home";
 import login from "./login";
@@ -12,6 +12,10 @@ import userApi from "./api/user/user-api";
 import usernameApi from "./api/user/username-api";
 import favoriteApi from "./api/favorite/favorite-api";
 
+/**
+ * Adds routes to an Express app.
+ * @param app Express application instance.
+ */
 export function addRoutes(app: Express) {
     app.use("/", home);
     app.use("/login", login);

@@ -1,4 +1,6 @@
-// Authenticate using our plain-object database of doom!
+/**
+ * A user model.
+ */
 export interface User {
     readonly id: string;
     readonly username: string;
