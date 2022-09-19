@@ -3,30 +3,38 @@ import type { User } from "../services/authent/user-repository";
 import express = require("express");
 import { body, validationResult } from "express-validator";
 import * as UserService from "../services/authent/user-service";
-import csrf from "../core/csrf";
+// DEMO: CSRF
+// import csrf from "../core/csrf";
 import { FlashMessageType } from "../core/flash-message";
 
 const router = express.Router();
 
-router.get("/", csrf, (req: Request, res: Response) => {
-    let postUrl;
-    if (typeof req.query.back == "string") {
-        const param = encodeURIComponent(req.query.back);
-        postUrl = `/login?back=${param}`;
-    } else {
-        postUrl = "/login";
-    }
+router.get(
+    "/",
+    // DEMO: CSRF
+    // csrf,
+    (req: Request, res: Response) => {
+        let postUrl;
+        if (typeof req.query.back == "string") {
+            const param = encodeURIComponent(req.query.back);
+            postUrl = `/login?back=${param}`;
+        } else {
+            postUrl = "/login";
+        }
 
-    res.render("login", {
-        title: "Login",
-        csrfToken: req.csrfToken(),
-        postUrl: postUrl,
-    });
-});
+        res.render("login", {
+            title: "Login",
+            // DEMO: CRSF
+            // csrfToken: req.csrfToken(),
+            postUrl: postUrl,
+        });
+    }
+);
 
 router.post(
     "/",
-    csrf,
+    // DEMO: CSRF
+    // csrf,
     body("username", "Username must be 3 to 32 chars long")
         .isLength({ min: 3, max: 32 })
         .trim()

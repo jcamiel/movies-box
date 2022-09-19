@@ -16,13 +16,13 @@ export function addSessionSupport(app: Express) {
             saveUninitialized: true, // don't create session until something stored
             secret: config.APP_SECRET,
 
-            // Demo: default cookie name
-            name: "x-session-id",
+            // DEMO: default cookie session name
+            // name: "x-session-id",
 
-            // Demo: cookie SameSite attribute
-            cookie: {
-                sameSite: "strict",
-            },
+            // DEMO: cookie SameSite attribute
+            // cookie: {
+            //     sameSite: "strict",
+            // },
         })
     );
 }
