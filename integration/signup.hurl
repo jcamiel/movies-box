@@ -53,7 +53,7 @@ csrf_token: xpath "string(//input[@name='_csrf']/@value)"
 POST http://localhost:3000/signup
 [FormParams]
 _csrf: {{csrf_token}}
-username: bob
+username: bo
 name: Bob
 email: bob78@example.net
 password: 12345678
@@ -67,7 +67,7 @@ GET http://localhost:3000/signup
 
 HTTP/* 200
 [Asserts]
-xpath "string(//div[@class='form-errors'])" contains "Username must be 4 to 32 chars long"
+xpath "string(//div[@class='form-errors'])" contains "Username must be 3 to 32 chars long"
 
 
 # Create a new user, email already taken

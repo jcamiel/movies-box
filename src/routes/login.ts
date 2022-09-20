@@ -27,12 +27,12 @@ router.get("/", csrf, (req: Request, res: Response) => {
 router.post(
     "/",
     csrf,
-    body("username", "Username must be 4 to 32 chars long")
-        .isLength({ min: 4, max: 32 })
+    body("username", "Username must be 3 to 32 chars long")
+        .isLength({ min: 3, max: 32 })
         .trim()
         .escape(),
     body("username", "Username must use a-z, A-Z, 0-9 or _ -").matches(
-        /^[a-zA-Z\d_-]{4,32}$/
+        /^[a-zA-Z\d_-]{3,32}$/
     ),
     body("password", "Password must 6 to 32 chars long")
         .isLength({ min: 6, max: 32 })

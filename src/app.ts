@@ -32,7 +32,7 @@ addSessionSupport(app);
 // Static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// Inject potential user in any response
+// Inject potential user0 in any response
 app.use((req: Request, res: Response, next: NextFunction) => {
     res.locals.user = req.session.user;
     next();
@@ -75,13 +75,23 @@ app.use((err: Error, req: Request, res: Response) => {
     res.render("error");
 });
 
-// Create a dummy user
-const user = UserService.createUser(
+// Create dummy users
+const user0 = UserService.createUser(
     "bob78",
     "bob78@example.net",
     "Bob",
     "12345678"
 );
-FavoriteService.addFavorite(user.id, 1);
-FavoriteService.addFavorite(user.id, 2);
-FavoriteService.addFavorite(user.id, 3);
+FavoriteService.addFavorite(user0.id, 1);
+FavoriteService.addFavorite(user0.id, 2);
+FavoriteService.addFavorite(user0.id, 3);
+
+const user1 = UserService.createUser(
+    "fab",
+    "fab@example.net",
+    "Fabrice",
+    "12345678"
+);
+FavoriteService.addFavorite(user1.id, 1);
+FavoriteService.addFavorite(user1.id, 2);
+FavoriteService.addFavorite(user1.id, 3);
