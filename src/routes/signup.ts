@@ -60,6 +60,8 @@ router.post(
     (req: Request, res: Response) => {
         const errors = validationResult(req);
         if (errors && !errors.isEmpty()) {
+            console.log("Error creating user");
+            console.info(errors);
             req.session.errors = errors.array();
             res.redirect("/signup");
             return;
