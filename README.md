@@ -8,7 +8,7 @@
     $ npm install
     ```
 2. Build
-    ```shell
+    ```shellbrew 
     $ npm run clean
     $ npm run build
     ```
