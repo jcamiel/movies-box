@@ -4,7 +4,7 @@ GET http://localhost:3000
 [Options]
 verbose: false
 
-HTTP/* 200
+HTTP 200
 [Asserts]
 xpath "string(//title)" == "Movies Box"
 xpath "string(//title)" startsWith "Movies"

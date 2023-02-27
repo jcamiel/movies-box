@@ -150,8 +150,8 @@ $ cd ~/Library/Application\ Support/JetBrains/IntelliJIdea2022.1/workspace
 ```yaml
       - name: Integration tests
         run: |
-          curl -LO https://github.com/Orange-OpenSource/hurl/releases/download/1.7.0/hurl_1.7.0_amd64.deb
-          sudo dpkg -i hurl_1.7.0_amd64.deb
+          curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/2.0.1/hurl_2.0.1_amd64.deb
+          sudo apt update && apt install ./hurl_2.0.1_amd64.deb
           bin/integration.sh
 ```
 

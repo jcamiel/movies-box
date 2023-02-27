@@ -2,7 +2,7 @@
 # ----------------------
 GET http://localhost:3000/login
 
-HTTP/* 200
+HTTP 200
 [Captures]
 token: xpath "string(//input[@name='_csrf']/@value)"
 
@@ -13,6 +13,6 @@ username: fab
 password: 12345678
 _csrf: {{token}}
 
-HTTP/* 302
+HTTP 302
 [Asserts]
 header "Location" == "/my-movies"

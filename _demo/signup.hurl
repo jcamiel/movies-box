@@ -2,7 +2,7 @@
 # ----------------------
 GET http://localhost:3000/signup
 
-HTTP/* 200
+HTTP 200
 [Captures]
 token: xpath "string(//input[@name='_csrf']/@value)"
 
@@ -16,6 +16,6 @@ password: 12345678
 password-confirm: 12345678
 _csrf: {{token}}
 
-HTTP/* 302
+HTTP 302
 [Asserts]
 header "Location" == "/my-movies"
