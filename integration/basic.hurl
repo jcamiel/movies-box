@@ -1,6 +1,5 @@
 GET http://localhost:3000
-
-HTTP/* 200
+HTTP 200
 [Asserts]
 xpath "string(//title)" == "Movies Box"
 xpath "(//div[@class='home-movies'][1])/div" count == 11
@@ -17,7 +16,6 @@ header "X-Powered-By" not exists
 
 # Check that we don't recreate a new session
 GET http://localhost:3000
-
-HTTP/* 200
+HTTP 200
 [Asserts]
 cookie "x-session-id" not exists

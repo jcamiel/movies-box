@@ -1,12 +1,11 @@
 GET http://localhost:3000/api/search
-HTTP/* 400
+HTTP 400
 
 
 GET http://localhost:3000/api/search
 [QueryStringParams]
 q: 1982
-
-HTTP/* 200
+HTTP 200
 [Asserts]
 jsonpath "$" count == 5
 jsonpath "$[0].name" == "Blade Runner"
@@ -17,8 +16,7 @@ jsonpath "$[0].release_date" == "1982-06-25"
 GET http://localhost:3000/api/search
 [QueryStringParams]
 q: sean young
-
-HTTP/* 200
+HTTP 200
 [Asserts]
 jsonpath "$" count == 2
 jsonpath "$[1].name" == "Dune"
@@ -30,7 +28,6 @@ jsonpath "$[1].release_date" == "1984-12-03"
 GET http://localhost:3000/api/search
 [QueryStringParams]
 q: sean young
-
-HTTP/* 200
+HTTP 200
 [Asserts]
 header "ETag" not exists

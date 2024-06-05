@@ -1,15 +1,14 @@
 # Signup, capture the csrf token
 GET http://localhost:3000/signup
-
-HTTP/* 200
+HTTP 200
 [Captures]
 csrf_token: xpath "string(//input[@name='_csrf']/@value)"
+
 
 # Create a user, all conditions verified
 # First we obtain an available username
 GET http://localhost:3000/api/usernames/available
-
-HTTP/* 200
+HTTP 200
 [Captures]
 username: jsonpath "$.username"
 
@@ -21,14 +20,13 @@ username: {{username}}
 name: Bob
 email: {{username}}@example.net
 password: 12345678
-
-HTTP/* 302
+HTTP 302
 [Asserts]
 header "Location" == "/my-movies"
 
 
 GET http://localhost:3000/my-movies
-HTTP/* 200
+HTTP 200
 
 # WARNING: this code doesn't work in concurrent tests
 # Delete the previous user using admin api
@@ -43,8 +41,7 @@ HTTP/* 200
 # email already taken, invalid pattern for username
 
 GET http://localhost:3000/signup
-
-HTTP/* 200
+HTTP 200
 [Captures]
 csrf_token: xpath "string(//input[@name='_csrf']/@value)"
 
@@ -57,15 +54,13 @@ username: bo
 name: Bob
 email: bob78@example.net
 password: 12345678
-
-HTTP/* 302
+HTTP 302
 [Asserts]
 header "Location" == "/signup"
 
 
 GET http://localhost:3000/signup
-
-HTTP/* 200
+HTTP 200
 [Asserts]
 xpath "string(//div[@class='form-errors'])" contains "Username must be 3 to 32 chars long"
 
@@ -78,17 +73,16 @@ username: bob33
 name: Bob
 email: bob78@example.net
 password: 12345678
-
-HTTP/* 302
+HTTP 302
 [Asserts]
 header "Location" == "/signup"
 
 
 GET http://localhost:3000/signup
-
-HTTP/* 200
+HTTP 200
 [Asserts]
 xpath "string(//div[@class='form-errors'])" contains "E-mail already in use"
+
 
 # Create a new user, invalid username pattern
 POST http://localhost:3000/signup
@@ -98,14 +92,12 @@ username: SELECT * FROM users;
 name: Bob
 email: foo@example.net
 password: 12345678
-
-HTTP/* 302
+HTTP 302
 [Asserts]
 header "Location" == "/signup"
 
 
 GET http://localhost:3000/signup
-
-HTTP/* 200
+HTTP 200
 [Asserts]
 xpath "string(//div[@class='form-errors'])" contains "Username must use a-z, A-Z, 0-9 or _ -"
