@@ -20,8 +20,8 @@ addHandlebarsEngine(app);
 
 app.use(logger("dev"));
 
-// Demo: leaking of 'X-Powered-By' headers
-app.disable("x-powered-by");
+// DEMO: X-Powered-By header
+// app.disable("x-powered-by");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

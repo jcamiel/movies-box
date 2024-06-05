@@ -52,13 +52,16 @@ router.post(
         .isLength({ min: 3, max: 32 })
         .trim()
         .escape(),
-    body("name", "Name must use a-z, A-Z, 0-9 or space -").matches(
-        /^[a-zA-Z\d\s-]{3,32}$/
-    ),
+    // DEMO: validation name
+    // body("name", "Name must use a-z, A-Z, 0-9 or space -").matches(
+    //     /^[a-zA-Z\d\s-]{3,32}$/
+    // ),
 
     (req: Request, res: Response) => {
         const errors = validationResult(req);
         if (errors && !errors.isEmpty()) {
+            console.log("Error creating user");
+            console.info(errors);
             req.session.errors = errors.array();
             res.redirect("/signup");
             return;
